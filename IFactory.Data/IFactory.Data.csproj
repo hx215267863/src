@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: E:\设备工作\ali-sys\项目\ATL\i-factory\Server\bin\IFactory.Data.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A26C0C21-B5A9-45D2-A197-625A201B9FE9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>IFactory.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>IFactory.Data</RootNamespace>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Common">
+      <HintPath>..\IFactory.Common\bin\Debug\IFactory.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Domain">
+      <HintPath>..\IFactory.Domain\bin\Debug\IFactory.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IDatabaseFactory.cs" />
+    <Compile Include="DatabaseFactory.cs" />
+    <Compile Include="DataContext.cs" />
+    <Compile Include="Crafts\CraftDbContext.cs" />
+    <Compile Include="Crafts\BakingDbContext.cs" />
+    <Compile Include="Crafts\ICraftDbFactory.cs" />
+    <Compile Include="Crafts\CraftDbFactory.cs" />
+    <Compile Include="Crafts\DegassingDbContext.cs" />
+    <Compile Include="Crafts\FEFDbContext.cs" />
+    <Compile Include="Crafts\InjectionDbContext.cs" />
+    <Compile Include="Crafts\Inspection2DbContext.cs" />
+    <Compile Include="Crafts\Inspection1DbContext.cs" />
+    <Compile Include="Crafts\MIBDbContext.cs" />
+    <Compile Include="Crafts\MylarDbContext.cs" />
+    <Compile Include="Crafts\OCV1DbContext.cs" />
+    <Compile Include="Crafts\OCVBDbContext.cs" />
+    <Compile Include="Crafts\PackingDbContext.cs" />
+    <Compile Include="Crafts\PIEFDbContext.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,14 @@
+﻿<Canvas x:Class="IFactory.UI.Controls.PercentageBar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:IFactory.UI.Controls"
+        Width="350" Height="45">
+    <Rectangle RadiusX="12" RadiusY="12" Fill="#c9c9c9" Width="350" Height="45"/>
+    <Rectangle x:Name="percentageBody" RadiusX="12" RadiusY="12" Fill="#4af1ff" Width="320" Height="45"
+             Visibility="Collapsed"/>
+    <Label x:Name="txtInfo" VerticalAlignment="Center" HorizontalAlignment="Center"
+         VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="350" Height="45"
+         Visibility="Collapsed">500 / 2000</Label>
+</Canvas>

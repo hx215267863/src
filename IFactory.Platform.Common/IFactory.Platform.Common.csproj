@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: E:\设备工作\ali-sys\项目\ATL\i-factory\ATL-Client\BIN 6.27\客户端704\IFactory.WebApi.Common.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B16825F6-A25F-4CCE-9F81-D20A50612268}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>IFactory.Platform.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>IFactory.Platform.Common</RootNamespace>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IFactory.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Domain\bin\Debug\IFactory.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="ICustomRequest.cs" />
+    <Compile Include="IResponse.cs" />
+    <Compile Include="Request\Alarm\AlarmInfoListRequest.cs" />
+    <Compile Include="Request\Crafts\AVERequest.cs" />
+    <Compile Include="Request\Crafts\DataPicRequest.cs" />
+    <Compile Include="Request\Crafts\Detail1Request.cs" />
+    <Compile Include="Request\Product\AlarmCheckRequest.cs" />
+    <Compile Include="Request\Product\ProductNGRequest.cs" />
+    <Compile Include="Request\Product\DataProductionRequest.cs" />
+    <Compile Include="Request\Product\OneKeyRequest.cs" />
+    <Compile Include="Request\Product\ZhuiSuRequest.cs" />
+    <Compile Include="Request\Setting\ArgumentRequest.cs" />
+    <Compile Include="Request\SystemParam\SystemParamDeleteRequest.cs" />
+    <Compile Include="Request\SystemParam\ProductParamDeleteRequest.cs" />
+    <Compile Include="Request\SystemParam\SystemParamGetRequest.cs" />
+    <Compile Include="Request\SystemParam\ProductParamGetRequest.cs" />
+    <Compile Include="Request\SystemParam\SystemParamListRequest.cs" />
+    <Compile Include="Request\SystemParam\ProductParamListRequest.cs" />
+    <Compile Include="Request\SystemParam\SystemParamSaveRequest.cs" />
+    <Compile Include="Request\SystemParam\ProductParamSaveRequest.cs" />
+    <Compile Include="Response\Alarm\AlarmInfoListResponse.cs" />
+    <Compile Include="Response\Crafts\AVEResponse.cs" />
+    <Compile Include="Response\Crafts\DataPicResponse.cs" />
+    <Compile Include="Response\Crafts\Detail1Response.cs" />
+    <Compile Include="Response\Product\AlarmCheckResponse.cs" />
+    <Compile Include="Response\Product\ProductNGResponse.cs" />
+    <Compile Include="Response\Product\DataProductionResponse.cs" />
+    <Compile Include="Response\Product\OneKeyResponse.cs" />
+    <Compile Include="Response\Product\ZhuiSuResponse.cs" />
+    <Compile Include="Response\Setting\ArgumentResponse.cs" />
+    <Compile Include="Response\SystemParam\SystemParamDeleteResponse.cs" />
+    <Compile Include="Response\SystemParam\ProductParamDeleteResponse.cs" />
+    <Compile Include="Response\SystemParam\SystemParamGetResponse.cs" />
+    <Compile Include="Response\SystemParam\ProductParamGetResponse.cs" />
+    <Compile Include="Response\SystemParam\SystemParamListResponse.cs" />
+    <Compile Include="Response\SystemParam\ProductParamListResponse.cs" />
+    <Compile Include="Response\SystemParam\SystemParamSaveResponse.cs" />
+    <Compile Include="Response\SystemParam\ProductParamSaveResponse.cs" />
+    <Compile Include="WebApiException.cs" />
+    <Compile Include="BaseResponse.cs" />
+    <Compile Include="Util\FileItem.cs" />
+    <Compile Include="Util\RequestValidator.cs" />
+    <Compile Include="Util\WebUtils.cs" />
+    <Compile Include="Util\WebApiUtils.cs" />
+    <Compile Include="Response\User\ChangePasswordResponse.cs" />
+    <Compile Include="Response\User\LoginResponse.cs" />
+    <Compile Include="Response\User\PermissionOrderResponse.cs" />
+    <Compile Include="Response\User\PermissionGetResponse.cs" />
+    <Compile Include="Response\User\PermissionListResponse.cs" />
+    <Compile Include="Response\User\PermissionSaveResponse.cs" />
+    <Compile Include="Response\User\PersonalInfoUpdateResponse.cs" />
+    <Compile Include="Response\User\RoleDeleteResponse.cs" />
+    <Compile Include="Response\User\RoleGetResponse.cs" />
+    <Compile Include="Response\User\RoleListResponse.cs" />
+    <Compile Include="Response\User\RoleSaveResponse.cs" />
+    <Compile Include="Response\User\UserDeleteResponse.cs" />
+    <Compile Include="Response\User\UserGetResponse.cs" />
+    <Compile Include="Response\User\UserListResponse.cs" />
+    <Compile Include="Response\User\UserSaveResponse.cs" />
+    <Compile Include="Response\Setting\KanbanSettingGetResponse.cs" />
+    <Compile Include="Response\Setting\KanbanSettingSaveResponse.cs" />
+    <Compile Include="Response\Report\KanbanReportGetResponse.cs" />
+    <Compile Include="Response\Product\CraftDetailGetResponse.cs" />
+    <Compile Include="Response\Product\CraftDetailListResponse.cs" />
+    <Compile Include="Response\Product\CraftDetailSaveResponse.cs" />
+    <Compile Include="Response\Product\CraftListResponse.cs" />
+    <Compile Include="Response\Product\CraftProbablyGetResponse.cs" />
+    <Compile Include="Response\Product\CraftStateGetResponse.cs" />
+    <Compile Include="Response\Product\FacilityListResponse.cs" />
+    <Compile Include="Response\Product\PLCStateListResponse.cs" />
+    <Compile Include="Response\Product\ProcessListResponse.cs" />
+    <Compile Include="Response\Product\ProductionLineProbablyGetResponse.cs" />
+    <Compile Include="Response\Product\ProductionLineProbablySaveResponse.cs" />
+    <Compile Include="Response\Product\ProductionStateGetResponse.cs" />
+    <Compile Include="Response\Product\ProductionTypeGetResponse.cs" />
+    <Compile Include="Response\Product\ProductionTypeListResponse.cs" />
+    <Compile Include="Response\Product\UnitDeleteResponse.cs" />
+    <Compile Include="Response\Product\UnitGetResponse.cs" />
+    <Compile Include="Response\Product\UnitListResponse.cs" />
+    <Compile Include="Response\Product\UnitSaveResponse.cs" />
+    <Compile Include="Response\Crafts\FacilityProductionDataListResponse.cs" />
+    <Compile Include="Response\Crafts\FacilityRunArgDateListResponse.cs" />
+    <Compile Include="Response\Crafts\FacilityRunArgSumResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmContentTopListResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmCraftTopListResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmFacilityTopListResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmFieldListResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmFieldSaveResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmRecordGetResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmRecordListResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmRuleSaveResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmTemporaryGetResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmTemporaryListResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmTemporaryUpdateHandledResponse.cs" />
+    <Compile Include="Response\Alarm\AlarmTypeListResponse.cs" />
+    <Compile Include="Parser\DateTimeConverter.cs" />
+    <Compile Include="Parser\DefaultXmlParser`1.cs" />
+    <Compile Include="Parser\IParser`1.cs" />
+    <Compile Include="Parser\JsonParser`1.cs" />
+    <Compile Include="Parser\PagedDataParser.cs" />
+    <Compile Include="Parser\XmlParser`1.cs" />
+    <Compile Include="Request\ICraftsReqeust.cs" />
+    <Compile Include="Request\IRequest`1.cs" />
+    <Compile Include="Request\IUploadRequest.cs" />
+    <Compile Include="Request\IUploadRequest`1.cs" />
+    <Compile Include="Request\BaseRequest`1.cs" />
+    <Compile Include="Request\BaseUploadRequest`1.cs" />
+    <Compile Include="Request\User\LoginRequest.cs" />
+    <Compile Include="Request\User\ChangePasswordRequest.cs" />
+    <Compile Include="Request\User\PermissionListRequest.cs" />
+    <Compile Include="Request\User\PermissionSaveRequest.cs" />
+    <Compile Include="Request\User\PermissionGetRequest.cs" />
+    <Compile Include="Request\User\PermissionOrderRequest.cs" />
+    <Compile Include="Request\User\PersonalInfoUpdateRequest.cs" />
+    <Compile Include="Request\User\RoleDeleteRequest.cs" />
+    <Compile Include="Request\User\RoleGetRequest.cs" />
+    <Compile Include="Request\User\RoleListRequest.cs" />
+    <Compile Include="Request\User\RoleSaveRequest.cs" />
+    <Compile Include="Request\User\UserDeleteRequest.cs" />
+    <Compile Include="Request\User\UserGetRequest.cs" />
+    <Compile Include="Request\User\UserListRequest.cs" />
+    <Compile Include="Request\User\UserSaveRequest.cs" />
+    <Compile Include="Request\Setting\KanbanSettingGetRequest.cs" />
+    <Compile Include="Request\Setting\KanbanSettingSaveRequest.cs" />
+    <Compile Include="Request\Report\KanbanReportGetRequest.cs" />
+    <Compile Include="Request\Product\CraftDetailGetRequest.cs" />
+    <Compile Include="Request\Product\CraftDetailListRequest.cs" />
+    <Compile Include="Request\Product\CraftDetailSaveRequest.cs" />
+    <Compile Include="Request\Product\CraftStateGetRequest.cs" />
+    <Compile Include="Request\Product\FacilityListRequest.cs" />
+    <Compile Include="Request\Product\CraftProbablyGetRequest.cs" />
+    <Compile Include="Request\Product\PLCStateListRequest.cs" />
+    <Compile Include="Request\Product\ProductionLineProbablySaveRequest.cs" />
+    <Compile Include="Request\Product\ProductionStateGetRequest.cs" />
+    <Compile Include="Request\Product\UnitDeleteRequest.cs" />
+    <Compile Include="Request\Product\UnitGetRequest.cs" />
+    <Compile Include="Request\Product\UnitSaveRequest.cs" />
+    <Compile Include="Request\Product\ProcessListRequest.cs" />
+    <Compile Include="Request\Product\ProductionLineProbablyGetRequest.cs" />
+    <Compile Include="Request\Product\ProductionTypeListRequest.cs" />
+    <Compile Include="Request\Product\ProductionTypeGetRequest.cs" />
+    <Compile Include="Request\Product\CraftListRequest.cs" />
+    <Compile Include="Request\Product\UnitListRequest.cs" />
+    <Compile Include="Request\Crafts\FacilityProductionDataListRequest.cs" />
+    <Compile Include="Request\Crafts\FacilityRunArgDateListRequest.cs" />
+    <Compile Include="Request\Crafts\FacilityRunArgSumRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmContentTopListRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmCraftTopListRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmFacilityTopListRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmFieldListRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmFieldSaveRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmRecordGetRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmRecordListRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmRuleSaveRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmTemporaryGetRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmTemporaryListRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmTemporaryUpdateHandledRequest.cs" />
+    <Compile Include="Request\Alarm\AlarmTypeListRequest.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

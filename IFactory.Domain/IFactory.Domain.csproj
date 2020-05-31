@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: E:\设备工作\ali-sys\项目\ATL\i-factory\ATL-Client\BIN 6.27\客户端704\IFactory.Domain.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E09FC85-48CB-4204-80BA-DBA9102EA651}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>IFactory.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>IFactory.Domain</RootNamespace>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IFactory.Common">
+      <HintPath>..\IFactory.Common\bin\Debug\IFactory.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="PagedList">
+      <HintPath>lib\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\AlarmCount.cs" />
+    <Compile Include="Common\SLOT_SITE.cs" />
+    <Compile Include="Common\SizeMeas2.cs" />
+    <Compile Include="Common\TimeD.cs" />
+    <Compile Include="Common\TimeS.cs" />
+    <Compile Include="Common\TypeC.cs" />
+    <Compile Include="Common\TimeC.cs" />
+    <Compile Include="Common\SizeMeas.cs" />
+    <Compile Include="Common\Process.cs" />
+    <Compile Include="Common\Quarters.cs" />
+    <Compile Include="Common\Segment.cs" />
+    <Compile Include="Common\CraftWork.cs" />
+    <Compile Include="Entities\ArgumentInfo.cs" />
+    <Compile Include="Entities\AlarmContentInfo.cs" />
+    <Compile Include="Entities\AlarmContentTopInfo.cs" />
+    <Compile Include="Entities\AlarmCraftTopInfo.cs" />
+    <Compile Include="Entities\AlarmFacilityTopInfo.cs" />
+    <Compile Include="Entities\AlarmReasonInfo.cs" />
+    <Compile Include="Entities\AlarmCheckInfo.cs" />
+    <Compile Include="Entities\ProductNGInfo.cs" />
+    <Compile Include="Entities\DataProductionInfo.cs" />
+    <Compile Include="Entities\DataPicInfo.cs" />
+    <Compile Include="Entities\Detail1Info.cs" />
+    <Compile Include="Entities\SystemParamInfo.cs" />
+    <Compile Include="Entities\ProductParamInfo.cs" />
+    <Compile Include="Entities\ZhuiSuInfo.cs" />
+    <Compile Include="Models\AllUsefullProductModel.cs" />
+    <Compile Include="Models\ArgumentItem.cs" />
+    <Compile Include="Models\AlarmCheckModel.cs" />
+    <Compile Include="Models\AVEItem.cs" />
+    <Compile Include="Models\AlarmInfoModel.cs" />
+    <Compile Include="Models\DataVulnerableItem.cs" />
+    <Compile Include="Models\ProductNGItem.cs" />
+    <Compile Include="Models\DataProductionItem.cs" />
+    <Compile Include="Models\DataPicItem.cs" />
+    <Compile Include="Models\Detail1Item.cs" />
+    <Compile Include="Models\OneKeyItem.cs" />
+    <Compile Include="Models\SystemParamModel.cs" />
+    <Compile Include="Models\ProductParamModel.cs" />
+    <Compile Include="Models\ZhuiSuItem.cs" />
+    <Compile Include="Models\CraftDetailModel.cs" />
+    <Compile Include="Models\KeyValueModel`2.cs" />
+    <Compile Include="Models\KanbanSettingModel.cs" />
+    <Compile Include="Models\PermissionModel.cs" />
+    <Compile Include="Models\AlarmContentTopModel.cs" />
+    <Compile Include="Models\AlarmCraftTopModel.cs" />
+    <Compile Include="Models\AlarmFacilityTopModel.cs" />
+    <Compile Include="Models\AlarmFieldValue.cs" />
+    <Compile Include="Models\AlarmFieldModel.cs" />
+    <Compile Include="Models\AlarmRecordItem.cs" />
+    <Compile Include="Models\AlarmRecordModel.cs" />
+    <Compile Include="Models\AlarmRuleModel.cs" />
+    <Compile Include="Models\AlarmTemporaryItem.cs" />
+    <Compile Include="Models\AlarmTemporaryModel.cs" />
+    <Compile Include="Models\AlarmTypeModel.cs" />
+    <Compile Include="Models\CraftModel.cs" />
+    <Compile Include="Models\CraftProbablyModel.cs" />
+    <Compile Include="Models\FacilityModel.cs" />
+    <Compile Include="Models\FieldRow.cs" />
+    <Compile Include="Models\IPagedData.cs" />
+    <Compile Include="Models\PagedData`1.cs" />
+    <Compile Include="Models\PLCStateModel.cs" />
+    <Compile Include="Models\ProcessModel.cs" />
+    <Compile Include="Models\ProductionLineProbablyModel.cs" />
+    <Compile Include="Models\ProductionTypeModel.cs" />
+    <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\UnitModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\Crafts\FacilityRunArgSumModel.cs" />
+    <Compile Include="Models\Report\DateDataItem`1.cs" />
+    <Compile Include="Models\Report\MonthDataItem`1.cs" />
+    <Compile Include="Models\Report\TextValueModel`1.cs" />
+    <Compile Include="Models\Report\QuarterDataItem`1.cs" />
+    <Compile Include="Models\Report\WeekDataItem`1.cs" />
+    <Compile Include="Models\Report\YearDataItem`1.cs" />
+    <Compile Include="Mappings\CodeGeneratorMap.cs" />
+    <Compile Include="Mappings\DeviceGroupMap.cs" />
+    <Compile Include="Mappings\AlarmFieldMap.cs" />
+    <Compile Include="Mappings\AlarmLocationImageMap.cs" />
+    <Compile Include="Mappings\AlarmRecordMap.cs" />
+    <Compile Include="Mappings\AlarmRuleMap.cs" />
+    <Compile Include="Mappings\AlarmTemporaryMap.cs" />
+    <Compile Include="Mappings\AlarmTypeMap.cs" />
+    <Compile Include="Mappings\AppMapping.cs" />
+    <Compile Include="Mappings\AuthMapping.cs" />
+    <Compile Include="Mappings\CraftMap.cs" />
+    <Compile Include="Mappings\CraftProbablyMap.cs" />
+    <Compile Include="Mappings\FacilityInfoMap.cs" />
+    <Compile Include="Mappings\KanbanSettingMap.cs" />
+    <Compile Include="Mappings\ManagerMap.cs" />
+    <Compile Include="Mappings\PermissionMap.cs" />
+    <Compile Include="Mappings\PLCStateMap.cs" />
+    <Compile Include="Mappings\ProcessMap.cs" />
+    <Compile Include="Mappings\ProductionLineProbablyMap.cs" />
+    <Compile Include="Mappings\ProductionTypeMap.cs" />
+    <Compile Include="Mappings\RoleMap.cs" />
+    <Compile Include="Mappings\SolutionImageMap.cs" />
+    <Compile Include="Mappings\SolutionMap.cs" />
+    <Compile Include="Mappings\UnitMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Entities\AlarmFieldInfo.cs" />
+    <Compile Include="Entities\AlarmLocationImageInfo.cs" />
+    <Compile Include="Entities\AlarmRecordInfo.cs" />
+    <Compile Include="Entities\AlarmRuleInfo.cs" />
+    <Compile Include="Entities\AlarmTemporaryInfo.cs" />
+    <Compile Include="Entities\AlarmTypeInfo.cs" />
+    <Compile Include="Entities\AppInfo.cs" />
+    <Compile Include="Entities\AuthInfo.cs" />
+    <Compile Include="Entities\CodeGeneratorInfo.cs" />
+    <Compile Include="Entities\CraftInfo.cs" />
+    <Compile Include="Entities\CraftProbablyInfo.cs" />
+    <Compile Include="Entities\DeviceGroupInfo.cs" />
+    <Compile Include="Entities\FacilityInfo.cs" />
+    <Compile Include="Entities\KanbanSettingInfo.cs" />
+    <Compile Include="Entities\ManagerInfo.cs" />
+    <Compile Include="Entities\PermissionInfo.cs" />
+    <Compile Include="Entities\PLCStateInfo.cs" />
+    <Compile Include="Entities\ProcessInfo.cs" />
+    <Compile Include="Entities\ProductionLineProbablyInfo.cs" />
+    <Compile Include="Entities\ProductionTypeInfo.cs" />
+    <Compile Include="Entities\RoleInfo.cs" />
+    <Compile Include="Entities\SolutionImageInfo.cs" />
+    <Compile Include="Entities\SolutionInfo.cs" />
+    <Compile Include="Entities\UnitInfo.cs" />
+    <Compile Include="Entities\UserInfo.cs" />
+    <Compile Include="Crafts\RF\Models\RFFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\RF\Entities\RFFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\RF\Entities\RFFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\PIEF\Mappings\PIEFFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\PIEF\Mappings\PIEFFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\PIEF\Models\PIEFFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\PIEF\Entities\PIEFFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\PIEF\Entities\PIEFFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Packing\Mappings\PackingFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\Packing\Mappings\PackingFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\Packing\Models\PackingFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\Packing\Entities\PackingFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\Packing\Entities\PackingFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\OCVB\Mappings\OCVBFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\OCVB\Mappings\OCVBFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\OCVB\Models\OCVBFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\OCVB\Entities\OCVBFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\OCVB\Entities\OCVBFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\OCV1\Mappings\OCV1FacilityRunArgMap.cs" />
+    <Compile Include="Crafts\OCV1\Mappings\OCV1FacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\OCV1\Models\OCV1FacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\OCV1\Entities\OCV1FacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\OCV1\Entities\OCV1FacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Mylar\Mappings\MylarFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\Mylar\Mappings\MylarFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\Mylar\Models\MylarFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\Mylar\Entities\MylarFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\Mylar\Entities\MylarFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\MIB\Mappings\MIBFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\MIB\Mappings\MIBFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\MIB\Models\MIBFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\MIB\Entities\MIBFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\MIB\Entities\MIBFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Inspection2\Models\Inspection2FacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\Inspection2\Mappings\Inspection2FacilityRunArgMap.cs" />
+    <Compile Include="Crafts\Inspection2\Mappings\Inspection2FacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\Inspection2\Entities\Inspection2FacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Inspection2\Entities\Inspection2FacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\Inspection1\Models\Inspection1FacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\Inspection1\Mappings\Inspection1FacilityRunArgMap.cs" />
+    <Compile Include="Crafts\Inspection1\Mappings\Inspection1FacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\Inspection1\Entities\Inspection1FacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Inspection1\Entities\Inspection1FacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\Injection\Models\InjectionFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\Injection\Mappings\InjectionFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\Injection\Mappings\InjectionFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\Injection\Entities\InjectionFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Injection\Entities\InjectionFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\FEF\Models\FEFFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\FEF\Mappings\FEFFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\FEF\Mappings\FEFFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\FEF\Entities\FEFFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\FEF\Entities\FEFFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\Degassing\Models\DegassingFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\Degassing\Mappings\DegassingFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\Degassing\Mappings\DegassingFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\Degassing\Entities\DegassingFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Degassing\Entities\DegassingFacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\Base\Models\FacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\Base\Mappings\FacilityRunArgMap`1.cs" />
+    <Compile Include="Crafts\Base\Entities\FacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Base\Entities\FacilityRunArgInfo.cs" />
+    <Compile Include="Crafts\Baking\Models\BakingFacilityProductionDataModel.cs" />
+    <Compile Include="Crafts\Baking\Mappings\BakingFacilityProductionDataMap.cs" />
+    <Compile Include="Crafts\Baking\Mappings\BakingFacilityRunArgMap.cs" />
+    <Compile Include="Crafts\Baking\Entities\BakingFacilityProductionDataInfo.cs" />
+    <Compile Include="Crafts\Baking\Entities\BakingFacilityRunArgInfo.cs" />
+    <Compile Include="Common\CraftType.cs" />
+    <Compile Include="Common\Gender.cs" />
+    <Compile Include="Common\TimeSectionType.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Model\INSBaseCellData.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

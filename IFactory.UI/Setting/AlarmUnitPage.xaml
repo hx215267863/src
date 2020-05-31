@@ -1,0 +1,46 @@
+﻿<controls:BasePage x:Class="IFactory.UI.Setting.AlarmUnitPage"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:local="clr-namespace:IFactory.UI.Setting"
+                   xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+                   Loaded="Page_Loaded" Title="AlarmUnitPage">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="16"/>
+        </Style>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <Image Style="{StaticResource RightPanelBorder}"/>
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="部件列表"/>
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Canvas.Right="60" Canvas.Top="7">
+                <Button Click="btnAdd_Click" x:Name="btnAdd" Content="添加" Style="{StaticResource BaseHeaderButtonStyle}"/>
+                <Button Content="查询" Style="{StaticResource BaseHeaderButtonStyle}"/>
+            </StackPanel>
+        </Canvas>
+        <DataGrid x:Name="dataGrid" Style="{StaticResource DataGridStyle1}" FontSize="14">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="部件编号" HeaderStyle="{StaticResource LeftColumnStyle}" Width="240" Binding="{Binding UnitNO}"/>
+                <DataGridTextColumn Header="部件名称" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="700"
+                            Binding="{Binding UnitName}"/>
+                <DataGridTemplateColumn Header="操作" HeaderStyle="{StaticResource RightColumnStyle}" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource CellLinkButtonStyle}" Content="修改"
+                        Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                        CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"/>
+                                <Button Style="{StaticResource CellLinkButtonStyle}" Content="删除"
+                        Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                        CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Canvas>
+</controls:BasePage>

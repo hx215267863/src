@@ -1,0 +1,56 @@
+﻿<controls:BasePage x:Class="IFactory.UI.SystemParamManager.ProductParamManagerPage"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:local="clr-namespace:IFactory.UI.SystemParamManager"
+                   xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+                   Loaded="Page_Loaded" Title="ProductParamManager">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="16"/>
+        </Style>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <Image Style="{StaticResource RightPanelBorder}"/>
+        <Canvas x:Name="header" Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="产品参数信息列表"/>
+            <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Canvas.Right="60" Canvas.Top="7">
+                <Button Click="btnAdd_Click" x:Name="btnAdd" Content="添加" Style="{StaticResource BaseHeaderButtonStyle}"/>
+                <Button x:Name="bthCheck"                            Content="查询" Style="{StaticResource BaseHeaderButtonStyle}" Click="bthCheck_Click"/>
+            </StackPanel>
+        </Canvas>
+        <DataGrid x:Name="dataGrid" Style="{StaticResource DataGridStyle1}" FontSize="14">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" HeaderStyle="{StaticResource LeftColumnStyle}" Width="75" Binding="{Binding RowID}"/>
+                <DataGridTextColumn Header="产品编码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="130" Binding="{Binding ITEM_CD}"/>
+                <DataGridTextColumn Header="产品名称" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="110"  Binding="{Binding ITEM_NM}"/>
+                <DataGridTextColumn Header="产品型号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="110" Binding="{Binding MODEL_CD}"/>
+                <DataGridTextColumn Header="产品颜色" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="110" Binding="{Binding ITEM_COLOR}"/>
+                <DataGridTextColumn Header="产品规格长" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="120"  Binding="{Binding ITEM_HEIGHT}"/>
+                <DataGridTextColumn Header="产品规格宽" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="120" Binding="{Binding ITEM_WIDTH}"/>
+                <DataGridTextColumn Header="光源1亮度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="0" Visibility="Hidden" Binding="{Binding MoveInLight_1}"/>
+                <DataGridTextColumn Header="光源2亮度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="0" Visibility="Hidden" Binding="{Binding MoveInLight_2}"/>
+                <DataGridTextColumn Header="每垛单位数" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="120" Binding="{Binding QTY_FOR_CRIB}"/>
+                <DataGridTextColumn Header="每盘单位数" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="120"  Binding="{Binding QTY_FOR_TRAY}"/>
+                <DataGridTemplateColumn Header="操作" HeaderStyle="{StaticResource RightColumnStyle}" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource CellLinkButtonStyle}" Content="修改"
+                        Command="{Binding DataContext.EditCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                        CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"/>
+                                <Button Style="{StaticResource CellLinkButtonStyle}" Content="删除"
+                        Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                        CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <controls:Pager x:Name="pager" Style="{StaticResource PagerStyle1}" Visibility="Collapsed"/>
+        <TextBox x:Name="textBox" Height="25" Canvas.Left="1040" TextWrapping="Wrap" Text="" Canvas.Top="124" Width="250" FontSize ="16"/>
+    </Canvas>
+</controls:BasePage>

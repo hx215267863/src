@@ -1,0 +1,27 @@
+﻿<Canvas x:Class="IFactory.UI.Controls.LineProbably"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:IFactory.UI.Controls">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="TextBlock.Foreground" Value="White"/>
+            <Setter Property="TextBlock.FontSize" Value="18"/>
+            <Setter Property="Canvas.Left" Value="160"/>
+        </Style>
+    </FrameworkElement.Resources>
+    <Panel.Background>
+        <ImageBrush ImageSource="Assets/LineProbably.png"/>
+    </Panel.Background>
+    <TextBlock x:Name="txtName" Canvas.Top="32"></TextBlock>
+    <TextBlock x:Name="txtProductionType" Canvas.Top="86"></TextBlock>
+    <TextBlock x:Name="txtNowYield" Canvas.Top="143"></TextBlock>
+    <TextBlock x:Name="txtTargetYield" Canvas.Top="196"></TextBlock>
+    <TextBlock x:Name="txtUserName" Canvas.Top="250"></TextBlock>
+    <TextBlock x:Name="txtPPM" Canvas.Top="305"></TextBlock>
+    <TextBlock x:Name="txtOKCount" Canvas.Top="360"></TextBlock>
+    <TextBlock x:Name="txtOKRate" Canvas.Top="415"></TextBlock>
+    <TextBlock x:Name="txtCode" Canvas.Top="415"></TextBlock>
+    
+</Canvas>

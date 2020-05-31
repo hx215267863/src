@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: E:\设备工作\ali-sys\项目\ATL\i-factory\Server\bin\IFactory.Service.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99AE8B75-5F3C-4FC7-8F14-02F5BA73A4CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>IFactory.LocalService</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>IFactory.LocalService</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Service\lib\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Service\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Common\bin\Debug\IFactory.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Data, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Data\bin\Debug\IFactory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Domain\bin\Debug\IFactory.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>lib\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="MySql.Data" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IAlarmService.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="BaseService`1.cs" />
+    <Compile Include="AlarmService.cs" />
+    <Compile Include="IBaseService`1.cs" />
+    <Compile Include="IAppService.cs" />
+    <Compile Include="AppService.cs" />
+    <Compile Include="IAuthService.cs" />
+    <Compile Include="AuthService.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="ManagerService.cs" />
+    <Compile Include="IProductionService.cs" />
+    <Compile Include="ProductionService.cs" />
+    <Compile Include="IReportService.cs" />
+    <Compile Include="ReportService.cs" />
+    <Compile Include="IRoleService.cs" />
+    <Compile Include="RoleService.cs" />
+    <Compile Include="ISettingService.cs" />
+    <Compile Include="ServiceHelper.cs" />
+    <Compile Include="SettingService.cs" />
+    <Compile Include="IUserService.cs" />
+    <Compile Include="UserService.cs" />
+    <Compile Include="Crafts\IBaseCraftService`1.cs" />
+    <Compile Include="Crafts\BaseCraftService`1.cs" />
+    <Compile Include="Crafts\IFacilityProductionDataService.cs" />
+    <Compile Include="Crafts\FacilityProductionDataService.cs" />
+    <Compile Include="Crafts\IFacilityRunArgService.cs" />
+    <Compile Include="Crafts\FacilityRunArgService.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

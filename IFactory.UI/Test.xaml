@@ -1,0 +1,37 @@
+﻿<Window x:Class="IFactory.UI.Test"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IFactory.UI"
+        xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+        Loaded="Window_Loaded" Title="Test" Height="450" Width="500">
+    <FrameworkElement.Resources>
+        <HierarchicalDataTemplate x:Key="Module" ItemsSource="{Binding Children}">
+            <Grid Margin="0,3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="240"/>
+                    <ColumnDefinition Width="150"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox VerticalAlignment="Center"/>
+                    <Image Source="Assets/file.png" Width="24" Height="24" Margin="3,0,0,0"/>
+                    <TextBlock Margin="3,0" VerticalAlignment="Center" Text="{Binding Path=Text}"/>
+                </StackPanel>
+                <Image Source="Assets/icons/Lower.png" Width="16" Height="16" Grid.Column="1"/>
+            </Grid>
+        </HierarchicalDataTemplate>
+    </FrameworkElement.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TreeView x:Name="tvMenus" Margin="12" ItemTemplate="{StaticResource Module}" Grid.Row="0"/>
+        <Border x:Name="border" Grid.Row="1"/>
+        <Label x:Name="txtValue" Grid.Row="2"/>
+        <Button Click="btnChange_Click" x:Name="btnChange" Grid.Row="3" Content="改变颜色"/>
+    </Grid>
+</Window>

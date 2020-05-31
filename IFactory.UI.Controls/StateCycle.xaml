@@ -1,0 +1,20 @@
+﻿<Canvas x:Class="IFactory.UI.Controls.StateCycle"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:IFactory.UI.Controls"
+        MouseMove="Canvas_MouseMove" MouseDown="Canvas_MouseDown" MouseLeave="Canvas_MouseLeave"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <FrameworkElement.Resources>
+        <Style x:Key="TextStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextBlock.FontSize" Value="18"/>
+            <Setter Property="TextBlock.FontFamily" Value="Microsoft YaHei"/>
+            <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+            <Setter Property="TextOptions.TextRenderingMode" Value="ClearType"/>
+        </Style>
+    </FrameworkElement.Resources>
+    <Canvas x:Name="canvas" Top="0" Left="0" Height="688" Width="688"/>
+    <Image x:Name="image" Canvas.Top="0" Canvas.Left="0" Height="688" Width="688"
+         Source="{Binding Path=StateTextImageSource}"/>
+</Canvas>

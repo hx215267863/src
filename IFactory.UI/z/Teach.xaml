@@ -1,0 +1,134 @@
+﻿<controls:BasePage x:Class="IFactory.UI.Debug.Teach"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IFactory.UI.Debug"
+      xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      Loaded="Page_Loaded" Title="RoleManagerPage">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseDataGridStyle}">
+            <Setter Property="FrameworkElement.MaxWidth" Value="1145"/>
+            <Setter Property="FrameworkElement.Height" Value="202"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="6"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+        <Style x:Key="FilterTextStyle" TargetType="{x:Type Label}">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Padding" Value="8,0"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ReportTitleStyle" TargetType="{x:Type Label}">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBoxStyle}">
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="FrameworkElement.Width" Value="166"/>
+            <Setter Property="FrameworkElement.Height" Value="23"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="FrameworkElement.MinHeight" Value="26"/>
+            <Setter Property="FrameworkElement.Height" Value="23"/>
+            <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="DatePicker.IsTodayHighlighted" Value="true"/>
+            <Setter Property="Control.Padding" Value="0"/>
+            <Setter Property="FrameworkElement.Margin" Value="0"/>
+            <Setter Property="DatePicker.SelectedDate" Value="{x:Null}"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="UIElement.SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Control.BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop Color="#24bdfa" Offset="0"/>
+                        <GradientStop Color="#FFFFCB97" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DatePicker}">
+                        <Grid x:Name="PART_Root" Margin="0" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="#0f93e7" StrokeThickness="2" Grid.Column="0"/>
+                            <Grid x:Name="PART_InnerGrid" Margin="0" Column="0" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <DatePickerTextBox x:Name="PART_TextBox" Focusable="false" HorizontalAlignment="Stretch" Margin="4,0"
+                                    SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" IsHitTestVisible="true"
+                                    IsReadOnly="true" VerticalAlignment="Center" FontFamily="{TemplateBinding Control.FontFamily}"
+                                    Foreground="{TemplateBinding Control.Foreground}" FontSize="{TemplateBinding Control.FontSize}"
+                                    BorderThickness="0" Background="Transparent"
+                                    Text="{Binding Path=SelectedDate, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}, StringFormat='yyyy-MM-dd'}"/>
+                                <ToggleButton Grid.Column="0" IsTabStop="false" Style="{StaticResource DatePickerToggleButtonStyle}"
+                                ClickMode="Press" Background="Transparent"
+                                IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <Popup x:Name="PART_Popup" Focusable="false" AllowsTransparency="true" Placement="Bottom"
+                        StaysOpen="false" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=PART_TextBox}"/>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <Image Style="{StaticResource RightPanelBorder}"/>
+        <Canvas Style="{StaticResource TabHeaderStyle1}" Canvas.Left="575" Canvas.Top="102">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="示教"/>
+        </Canvas>
+        <Button x:Name="button_MoveToPosition" Content="移动到" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="46" Click="button_MoveToPosition_Click" Canvas.Left="764" Canvas.Top="260"/>
+        <Button x:Name="button_MoveToCatch" Content="移动到取料位" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="46" Click="button_MoveToCatch_Click" Canvas.Left="626" Canvas.Top="296"/>
+        <Button x:Name="button_MoveToRelease" Content="移动到放料位" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="46" Click="button_MoveToRelease_Click" Canvas.Left="626" Canvas.Top="356"/>
+        <Button x:Name="button_MoveToZero" Content="移动到零位" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="46" Click="button_MoveToZero_Click" Canvas.Left="626" Canvas.Top="416"/>
+        <Button x:Name="button_Save" Content="保存坐标" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="46"  Click="button_Save_Click" Canvas.Left="1176" Canvas.Top="636"/>
+        <Button x:Name="button_AddX" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_AddX_Click" Canvas.Left="1038" Canvas.Top="376"/>
+        <Button x:Name="button_CutX" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_CutX_Click" Canvas.Left="924" Canvas.Top="376"/>
+        <Button x:Name="button_AddY" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_AddY_Click" Canvas.Left="1038" Canvas.Top="416"/>
+        <Button x:Name="button_CutY" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_CutY_Click" Canvas.Left="924" Canvas.Top="416"/>
+        <Button x:Name="button_AddZ" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_AddZ_Click" Canvas.Left="1038" Canvas.Top="456"/>
+        <Button x:Name="button_CutZ" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_CutZ_Click" Canvas.Left="924" Canvas.Top="456"/>
+        <Button x:Name="button_AddU" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_AddU_Click" Canvas.Left="1038" Canvas.Top="496"/>
+        <Button x:Name="button_CutU" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_CutU_Click" Canvas.Left="924" Canvas.Top="496"/>
+        <Button x:Name="button_AddSZ" Content="+" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_AddSZ_Click" Canvas.Left="1038" Canvas.Top="536"/>
+        <Button x:Name="button_CutSZ" Content="-" HorizontalAlignment="Left" VerticalAlignment="Top" Width="26" Height="26"  Click="button_CutSZ_Click" Canvas.Left="924" Canvas.Top="536"/>
+        <TextBox x:Name="textBox_MoveX" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Canvas.Left="889" Canvas.Top="276"/>
+        <TextBox x:Name="textBox_MoveY" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Canvas.Left="979" Canvas.Top="276"/>
+        <TextBox x:Name="textBox_MoveZ" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Canvas.Left="1069" Canvas.Top="276"/>
+        <TextBox x:Name="textBox_MoveU" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Canvas.Left="1159" Canvas.Top="276"/>
+        <TextBox x:Name="textBox_MoveSZ" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" Canvas.Left="1249" Canvas.Top="276"/>
+        <TextBox x:Name="textBox_PositionX" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Canvas.Left="962" Canvas.Top="376"/>
+        <TextBox x:Name="textBox_PositionY" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Canvas.Left="962" Canvas.Top="416"/>
+        <TextBox x:Name="textBox_PositionZ" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Canvas.Left="962" Canvas.Top="456"/>
+        <TextBox x:Name="textBox_PositionU" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Canvas.Left="962" Canvas.Top="496"/>
+        <TextBox x:Name="textBox_PositionSZ" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="66" Canvas.Left="962" Canvas.Top="536"/>
+        <Label x:Name="label" Content="X：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="889" Canvas.Top="244"/>
+        <Label x:Name="label1" Content="Y：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="979" Canvas.Top="244"/>
+        <Label x:Name="label2" Content="Z：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="1069" Canvas.Top="244"/>
+        <Label x:Name="label3" Content="U：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="1159" Canvas.Top="244"/>
+        <Label x:Name="label4" Content="位置选择：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="765" Canvas.Top="346"/>
+        <Label x:Name="label5" Content="当前坐标：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="962" Canvas.Top="346"/>
+        <Label x:Name="label6" Content="X：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="890" Canvas.Top="376"/>
+        <Label x:Name="label7" Content="Y：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="890" Canvas.Top="416"/>
+        <Label x:Name="label8" Content="Z：" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="32" Canvas.Left="890" Canvas.Top="456"/>
+        <Label x:Name="label9" Content="U：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="890" Canvas.Top="496"/>
+        <Label x:Name="label10" Content="移动距离：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="765" Canvas.Top="412"/>
+        <Label x:Name="label11" Content="SZ：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="1249" Canvas.Top="244"/>
+        <Label x:Name="label12" Content="SZ：" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="890" Canvas.Top="536"/>
+        <ComboBox x:Name="comboBox_Position" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="26" SelectionChanged="comboBox_Position_SelectionChanged" Canvas.Left="765" Canvas.Top="376"/>
+        <ComboBox x:Name="comboBox_Distance" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" Height="26" SelectionChanged="comboBox_Distance_SelectionChanged" Canvas.Left="765" Canvas.Top="442"/>
+    </Canvas>
+</controls:BasePage>
+

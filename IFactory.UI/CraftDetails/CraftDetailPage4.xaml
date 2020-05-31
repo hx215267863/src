@@ -1,0 +1,90 @@
+﻿<controls:BaseCraftDetailPage x:Class="IFactory.UI.CraftDetails.CraftDetailPage4"
+                              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                              xmlns:local="clr-namespace:IFactory.UI.CraftDetails"
+                              xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+                              Loaded="BaseCraftDetailPage_Loaded" Title="CraftDetailPage4">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="TextBlock.FontSize" Value="16"/>
+            <Setter Property="TextBlock.Foreground" Value="White"/>
+            <Setter Property="TextBlock.Padding" Value="10,0"/>
+        </Style>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <controls:DateScaleBar SelectedDateChanged="dateScaleBar_SelectedDateChanged"
+                           DateRangeChanged="dateScaleBar_DateRangeChanged" x:Name="dateScaleBar" Left="115" Top="40"/>
+        <Grid Canvas.Top="190">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="185"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"
+                 FlowDirection="RightToLeft">
+        自动运行时间与
+        <LineBreak/>
+        自动运行总时间
+            </TextBlock>
+            <controls:PercentageBar x:Name="percentageBar1" Grid.Row="0" Grid.Column="1"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"
+                 FlowDirection="RightToLeft">
+        采集数量与
+        <LineBreak/>
+        坏品数量
+            </TextBlock>
+            <controls:PercentageBar x:Name="percentageBar2" Grid.Row="0" Grid.Column="3"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"
+                 FlowDirection="RightToLeft">
+        运行中时间与
+        <LineBreak/>
+        运行中总时间
+            </TextBlock>
+            <controls:PercentageBar x:Name="percentageBar3" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"
+                 FlowDirection="RightToLeft">
+        采集总数量与
+        <LineBreak/>
+        坏品总数量
+            </TextBlock>
+            <controls:PercentageBar x:Name="percentageBar4" Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"
+                 FlowDirection="RightToLeft">
+        报警时间与
+        <LineBreak/>
+        报警总时间
+            </TextBlock>
+            <controls:PercentageBar x:Name="percentageBar5" Grid.Row="2" Grid.Column="1"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"
+                 FlowDirection="RightToLeft">
+        运行时间与
+        <LineBreak/>
+        运行总时间
+            </TextBlock>
+            <controls:PercentageBar x:Name="percentageBar6" Grid.Row="2" Grid.Column="3"/>
+            <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"
+                 FlowDirection="RightToLeft">
+        停机时间与
+        <LineBreak/>
+        停机总时间
+            </TextBlock>
+            <controls:PercentageBar x:Name="percentageBar7" Grid.Row="3" Grid.Column="1"/>
+            <TextBlock Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Right"
+                 FlowDirection="RightToLeft">
+        等待时间与
+        <LineBreak/>
+        等待总时间
+            </TextBlock>
+            <controls:PercentageBar x:Name="percentageBar8" Grid.Row="3" Grid.Column="3"/>
+        </Grid>
+    </Canvas>
+</controls:BaseCraftDetailPage>

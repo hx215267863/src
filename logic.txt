@@ -1,0 +1,14 @@
+device_group表，表示资产编号，1个设备就有1个device_group_did
+device_group_did是主键，craft_did是字段内容，1个craft_did可以对应多个主键
+
+craft工艺名称表
+1个craft_did对应1个工艺名称，比如OCVB, MIB
+1个工艺名称，可能现场有好几个设备，比如现场有2个OCVB
+
+facility_info机构信息表
+facility_did是主键，1个设备（device_group_did）对应多个facility_did机构ID
+1个设备（process_did）对应多个facility_did机构ID，也就是说1个工序有多个机构ID
+1个device_group_did资产ID对应多个process_did工序ID
+
+process 设备加工工序表
+process_did是主键，craft_did是字段，1个craft_did工艺ID对应多个process_did处理过程工序ID

@@ -1,0 +1,78 @@
+﻿<controls:BasePage x:Class="IFactory.UI.CraftDetails.CraftDetailPage12"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IFactory.UI.CraftDetails"
+       xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+      Loaded="Page_Loaded" Title="RoleManagerPage">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="16"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <DataGrid x:Name="dataGrid" Style="{StaticResource DataGridStyle1}" FontSize="14" Canvas.Left="25" Canvas.Top="14" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Iden" HeaderStyle="{StaticResource LeftColumnStyle}" Width="140"
+                            Binding="{Binding Iden}"/>
+                <DataGridTextColumn Header="产品型号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="290"
+                            Binding="{Binding ProductNo }"/>
+                <DataGridTextColumn Header="电芯条码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding BatteryBarCode}"/>
+                <DataGridTextColumn Header="设备组编号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding DeviceGroupDID}"/>
+                <DataGridTextColumn Header="序号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding No}"/>
+                <DataGridTextColumn Header="生产日期" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding StartDate, StringFormat='yyyy-MM-dd HH:mm:ss'}"/>
+                <DataGridTextColumn Header="测试结果" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding Result}"/>
+                <DataGridTextColumn Header="背面缺陷检测结果" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding BackReturn}"/>
+                <DataGridTextColumn Header="背面缺陷检测错误吗" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding BackErrcode}"/>
+                <DataGridTextColumn Header="正面缺陷检测结果" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding FrontRetrun}"/>
+                <DataGridTextColumn Header="正面缺陷检测错误码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding FrontErrcode}"/>
+                <DataGridTextColumn Header="主体宽度Top" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding MainBodyWidthTop}"/>
+                <DataGridTextColumn Header="主体宽度Buttom" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding MainBodyWidthButtom}"/>
+                <DataGridTextColumn Header="主体长度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding MainBodyHeight}"/>
+                <DataGridTextColumn Header="顶封宽度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding TopsealHeight}"/>
+                <DataGridTextColumn Header="左极耳左边距" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding DistanceBetweenTab1Left}"/>
+                <DataGridTextColumn Header="右极耳左边距" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding DistanceBetwwnTab2Left}"/>
+                <DataGridTextColumn Header="极耳中心距" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding DistanceBetweenTab}"/>
+                <DataGridTextColumn Header="左Tab高度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding LeftTabHeight}"/>
+                <DataGridTextColumn Header="左Tab宽度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding RightTabHeight}"/>
+                <DataGridTextColumn Header="右Tab高度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding LeftTabWidth}"/>
+                <DataGridTextColumn Header="右Tab宽度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding RightTabWidth}"/>
+                <DataGridTemplateColumn Header="结尾" HeaderStyle="{StaticResource RightColumnStyle}" Width="-1">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource CellLinkButtonStyle}" Content="查看详情"
+                        Command="{Binding DataContext.ViewDetailCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                        CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <controls:Pager PageNumberChanged="pager_PageNumberChanged" x:Name="pager" Style="{StaticResource PagerStyle1}"
+                    Visibility="Collapsed" Canvas.Left="25" Canvas.Top="630"/>
+    </Canvas>
+</controls:BasePage>

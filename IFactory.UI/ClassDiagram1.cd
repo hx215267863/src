@@ -1,0 +1,891 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IFactory.UI.AlarmMonitor.AlarmAddFieldPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAQAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>AlarmMonitor\AlarmAddFieldPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.AlarmAddRulePage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAACABBAAAAAABAAAACQAAAAEEAAAAAAAIAAA=</HashCode>
+      <FileName>AlarmMonitor\AlarmAddRulePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.AlarmConfigMainPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AlarmMonitor\AlarmConfigMainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.HistoryAlarmDetailPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAQAAAQAAAAAAIAAIAAA=</HashCode>
+      <FileName>AlarmMonitor\HistoryAlarmDetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.HistoryAlarmListPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAkAAgDAIAEAEAAAAAAAAIAAQAAAUAAAAAQAEAAAAA=</HashCode>
+      <FileName>AlarmMonitor\HistoryAlarmListPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.HistoryAlarmListPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAkAAgDAIAEAEAAAAAAAAIAAQAAAUAAAAAQAEAAAAA=</HashCode>
+      <FileName>AlarmMonitor\HistoryAlarmListPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.RealTimeAlarmDetailPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAQAAAAAAAAAAIAAIAAg=</HashCode>
+      <FileName>AlarmMonitor\RealTimeAlarmDetailPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.RealTimeAlarmListPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAgA=</HashCode>
+      <FileName>AlarmMonitor\RealTimeAlarmListPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.SetAlarmPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AlarmMonitor\SetAlarmPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.AlarmMonitor.WorkCalendarPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AlarmMonitor\WorkCalendarPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.App" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAIAAAAAAAAAAAAAAAAAAIAAAQAIAAAAAAgAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IFactory.UI.CalendarPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CalendarPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CityInfo" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAIAAAAAAAAAAAAAAAABAAAEAAAAEAAAAAAAA=</HashCode>
+      <FileName>CityInfo.cs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IFactory.UI.Live" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAQAAAAAAAAhABAgAAIAAAAAgBAAAEAA=</HashCode>
+      <FileName>Live.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.LoginWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAASAAAIBAAAAAAAAA=</HashCode>
+      <FileName>LoginWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.MainPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAAAAAAAAAAAAAAAAAAgARQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAgEAEAoQACAAIGAEgAAIgjAAABQAAgcBAAgAAgQEE=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.ShowPictureWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAgAAAAAAAAAAAQ=</HashCode>
+      <FileName>ShowPictureWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Test" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAACAAAAAAAAAgAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Test.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.BtyArgumentPage1" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAgAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Argument\BtyArgumentPage1.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.LoginDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAQAAAABAhAAAAAAA=</HashCode>
+      <FileName>LoginDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.AlarmUnitAddDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAIgAAAAAQAAAAAABAAAIAAA=</HashCode>
+      <FileName>Setting\AlarmUnitAddDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.AlarmUnitPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAIQAEAAAAAAAAAAQAAAAAAAAAAAgAAAAI=</HashCode>
+      <FileName>Setting\AlarmUnitPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.BtyArgumentPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Setting\BtyArgumentPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.CraftEditDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIgAAAAAQAAAAAARAAAIAAA=</HashCode>
+      <FileName>Setting\CraftEditDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.CraftManagentPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAQAAAAAAAAAACAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Setting\CraftManagentPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.GeneralPresupposition" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Setting\GeneralPresupposition.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.KanbanManagementPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAACQAAAAEAAAAAAAAIAAA=</HashCode>
+      <FileName>Setting\KanbanManagementPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.ProductionLineEditDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIwAAAAAQAAAAAABAAAIAAA=</HashCode>
+      <FileName>Setting\ProductionLineEditDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.ProductionLineManagentPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAQAAAAAAAAAIAAQIAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Setting\ProductionLineManagentPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Setting.SetArgumentPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Setting\SetArgumentPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Argument.BtyArgumentPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Argument\BtyArgumentPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Argument.BtyArgumentPage3" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Argument\BtyArgumentPage3..xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Argument.BtyArgumentPage4" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Argument\BtyArgumentPage4.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftDetails.CraftDetailPage1" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>CraftDetails\CraftDetailPage1.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftDetails.CraftDetailPage12" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>CraftDetails\CraftDetailPage12.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftDetails.CraftDetailPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAEAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>CraftDetails\CraftDetailPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftDetails.CraftDetailPage3" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>CraftDetails\CraftDetailPage3.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftDetails.CraftDetailPage4" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAIgAAAA=</HashCode>
+      <FileName>CraftDetails\CraftDetailPage4.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftDetails.CraftDetailsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftDetails\CraftDetailsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftDetails.CraftDetailsPage02" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftDetails\CraftDetailsPage02.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftAVIPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftAVIPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftBakingPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftBakingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftDegassingPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftDegassingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftFEFPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftFEFPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftFQIPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftFQIPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftInjectionPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftInjectionPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftInspection1Page" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAEAgAAAQAAAAEAiAAAIAgIBYAAIAAAgAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftInspection1Page.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftInspection2Page" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAAEAgAAAQAAAAEAiAAAIAgIBYAAIAAAgAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftInspection2Page.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftMIBPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftMIBPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftMyLarPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftMyLarPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftOCV1Page" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftOCV1Page.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftOCVBPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftOCVBPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftPackingPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftPackingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftPIEFPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftPIEFPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftRFPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftRFPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftTappingPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftTappingPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.CraftIndex.CraftXRayPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAEAgAAAAAAAAAAAAAAAAgABQAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>CraftIndex\CraftXRayPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.AVEPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAwBEAABAAiACACAAAQIgAAAgQABAACMAAAAAAAIBQA=</HashCode>
+      <FileName>DataWareHouse\AVEPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.AVEPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAwBEAABAAiACACAAAQIgAAAgQABAACMAAAAAAAIBQA=</HashCode>
+      <FileName>DataWareHouse\AVEPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataAlarm" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAAAAEICACAAAIAAAAgCAiQABAACMAGwAgCACAQA=</HashCode>
+      <FileName>DataWareHouse\DataAlarmPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataAlarm2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAAAAEICACAAAIAAAAgCAiQABAACMAGwAgCACAQA=</HashCode>
+      <FileName>DataWareHouse\DataAlarmPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataCapacity" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\DataCapacityPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataCapacity2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\DataCapacityPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataNG" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\DataNGPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataNG2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\DataNGPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataOK" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\DataOKPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataOK2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\DataOKPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataProduction" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAACAIAAAAAAAAAAAAQAAAACEAAAAAAAAAQA=</HashCode>
+      <FileName>DataWareHouse\DataProductionPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataQuality" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\DataQualityPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.DataQuality2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\DataQualityPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.PPM" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\PPMPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.PPM2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAwAGACAEoCACAAEAAAAAgAAiQABAACMAAwAgCgCAQA=</HashCode>
+      <FileName>DataWareHouse\PPMPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.ProductStatementNGPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>DataWareHouse\ProductStatementNGPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.ProductStatementNGPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>DataWareHouse\ProductStatementNGPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.ProductStatementPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>DataWareHouse\ProductStatementPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.ProductStatementPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>DataWareHouse\ProductStatementPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.WorkCalendar" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAACACAgAAAAQAAAAAAAQgBAACUAAIAAABGAAA=</HashCode>
+      <FileName>DataWareHouse\WorkCalendarPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.DataWareHouse.WorkCalendar2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAACACAgAAAAQAAAAAAAQgBAACUAAIAAABGAAA=</HashCode>
+      <FileName>DataWareHouse\WorkCalendarPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.FarCtrl.OneChange" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAACABAEAQAIAAAAAAACCAAAAAA=</HashCode>
+      <FileName>FarCtrl\OneChangePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.FarCtrl.OneKey" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAQAIAAAAAAACCAAAAAA=</HashCode>
+      <FileName>FarCtrl\OneKeyPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.FarCtrl.OneKey2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAQAIAAAAAAIiCAAAAAA=</HashCode>
+      <FileName>FarCtrl\OneKeyPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Helpers.ChartHelper" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\ChartHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utility.Http.HttpClient" Collapsed="true">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAABAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HttpClient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IFactory.UI.Maintain.VulnerableStatisticPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEIAgDAAAEAAAAAAAAAEIAIQAAAUAAAAQAAAAAAgA=</HashCode>
+      <FileName>Maintain\VulnerableStatisticPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IFactory.UI.Properties.Settings" Collapsed="true">
+    <Position X="12.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IFactory.UI.Situation.StandbyPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Situation\StandbyPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.Upgrade.UpgradeHelper" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Upgrade\UpgradeHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IFactory.UI.Upgrade.UpgradeService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAgAAAAAAALBABACAQAYABAAAAAAAI=</HashCode>
+      <FileName>Upgrade\UpgradeService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.BarCodeCheckDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABIgAAABAQAAAgQABAAAIAAA=</HashCode>
+      <FileName>UserManager\BarCodeCheckDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.ChangePasswordDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAQAAAAAABAAAAAAA=</HashCode>
+      <FileName>UserManager\ChangePasswordDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.FactoryCheckDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAgAAAAAAAEAAAAAABIgAAABAQAAAAQABAAAIAAA=</HashCode>
+      <FileName>UserManager\FactoryCheckDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.MenuEditDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAIgAAAAAQAAAAAABAAAIAAA=</HashCode>
+      <FileName>UserManager\MenuEditDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.MenuManagementPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAABAAQBAAAAAACAAAkQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserManager\MenuManagementPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.MenuNameStyleConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserManager\MenuNameStyleConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.PersonalInfoEditDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIgAAAAAQAAAAAABAAAIAAA=</HashCode>
+      <FileName>UserManager\PersonalInfoEditDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.PersonalInfoPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAAQAAAIAAA=</HashCode>
+      <FileName>UserManager\PersonalInfoPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.RoleAddDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAABAAgAAAAAAAAIgAAAAAQAAAAAABFAAAAQA=</HashCode>
+      <FileName>UserManager\RoleAddDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.RoleManagerPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAAAAAAAAAAAQAEAAAAAAAABAQAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>UserManager\RoleManagerPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.UserAddDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABIgAAAAAQAAAAAABAAAIAAA=</HashCode>
+      <FileName>UserManager\UserAddDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.UserCheckDialog" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAwAAAAAAgAAABIiBAYCAQAAAAAAJAAAIBAA=</HashCode>
+      <FileName>UserManager\UserCheckDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.UserManager.UserManagerPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAQAEEAAAAAAABAQAAAAAAAAAAAAAAAgI=</HashCode>
+      <FileName>UserManager\UserManagerPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.DataProductionHistoryPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEIAgDAAAEAAAAAAAAAEIAIQAAAUAAAAQAAAAAAgA=</HashCode>
+      <FileName>zhuisu\DataProductionHistoryPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.DataProductionHistoryPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEIAgDAAAEAAAAAAAAAEIAIQAAAUAAAAQAAAAAAgA=</HashCode>
+      <FileName>zhuisu\DataProductionHistoryPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.DataProductionRealPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEIAgDAAAEAAAAAAAAAEIAIQAAAUAAAAQAAAAAAgA=</HashCode>
+      <FileName>zhuisu\DataProductionRealPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.DataProductionRealPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEIAgDAAAEAAAAAAAAAEIAIQAAAUAAAAQAAAAAAgA=</HashCode>
+      <FileName>zhuisu\DataProductionRealPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.DataProductionRealTimePage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>zhuisu\DataProductionRealTimePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.ZhuiSuHistoryPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEIAgDAAAEAAAAAAAAAEIAAQAAAUAAAAQAAAAAAgA=</HashCode>
+      <FileName>zhuisu\ZhuiSuHistoryPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.ZhuiSuHistoryPage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="18" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEIAgDAAAEAAAAAAAAAEIAAQAAAUAAAAQAAAAAAgA=</HashCode>
+      <FileName>zhuisu\ZhuiSuHistoryPage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.ZhuiSuRealTimePage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>zhuisu\ZhuiSuRealTimePage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="IFactory.UI.zhuisu.ZhuiSuRealTimePage2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAEAAADAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>zhuisu\ZhuiSuRealTimePage2.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

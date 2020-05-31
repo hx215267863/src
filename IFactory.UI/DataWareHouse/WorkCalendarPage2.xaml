@@ -1,0 +1,621 @@
+﻿<controls:BasePage x:Class="IFactory.UI.DataWareHouse.WorkCalendar2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IFactory.UI.DataWareHouse"
+      xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      Loaded="Page_Loaded" Title="RoleManagerPage">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseDataGridStyle}">
+            <Setter Property="FrameworkElement.MaxWidth" Value="1145"/>
+            <Setter Property="FrameworkElement.Height" Value="202"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="6"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+        <Style x:Key="FilterTextStyle" TargetType="{x:Type Label}">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Padding" Value="8,0"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ReportTitleStyle" TargetType="{x:Type Label}">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBoxStyle}">
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="FrameworkElement.Width" Value="166"/>
+            <Setter Property="FrameworkElement.Height" Value="23"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="FrameworkElement.MinHeight" Value="26"/>
+            <Setter Property="FrameworkElement.Height" Value="23"/>
+            <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="DatePicker.IsTodayHighlighted" Value="true"/>
+            <Setter Property="Control.Padding" Value="0"/>
+            <Setter Property="FrameworkElement.Margin" Value="0"/>
+            <Setter Property="DatePicker.SelectedDate" Value="{x:Null}"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="UIElement.SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Control.BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop Color="#24bdfa" Offset="0"/>
+                        <GradientStop Color="#FFFFCB97" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DatePicker}">
+                        <Grid x:Name="PART_Root" Margin="0" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="#0f93e7" StrokeThickness="2" Grid.Column="0"/>
+                            <Grid x:Name="PART_InnerGrid" Margin="0" Column="0" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <DatePickerTextBox x:Name="PART_TextBox" Focusable="false" HorizontalAlignment="Stretch" Margin="4,0"
+                                    SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" IsHitTestVisible="true"
+                                    IsReadOnly="true" VerticalAlignment="Center" FontFamily="{TemplateBinding Control.FontFamily}"
+                                    Foreground="{TemplateBinding Control.Foreground}" FontSize="{TemplateBinding Control.FontSize}"
+                                    BorderThickness="0" Background="Transparent"
+                                    Text="{Binding Path=SelectedDate, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}, StringFormat='yyyy-MM-dd'}"/>
+                                <ToggleButton Grid.Column="0" IsTabStop="false" Style="{StaticResource DatePickerToggleButtonStyle}"
+                                ClickMode="Press" Background="Transparent"
+                                IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <Popup x:Name="PART_Popup" Focusable="false" AllowsTransparency="true" Placement="Bottom"
+                        StaysOpen="false" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=PART_TextBox}"/>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <Image Style="{StaticResource RightPanelBorder}" Canvas.Left="260" Canvas.Top="118" Width="1307"/>
+        <Canvas Style="{StaticResource TabHeaderStyle1}" Canvas.Top="142" Canvas.Left="534">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="工作日历"/>
+        </Canvas>
+        <Grid Name="Simon">
+        </Grid>
+        <Rectangle Fill="#07AFF9" Height="577" Canvas.Left="320" Stroke="Black" Canvas.Top="188" Width="1184"/>
+        <Rectangle x:Name ="Rec12_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec12_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="279" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec11_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="304" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec10_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="329" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec9_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="354" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec8_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="379" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec7_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="404" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec6_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="429" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec5_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="454" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec4_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="479" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec3_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="504" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec2_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="529" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_1" Fill="#8CFFF7" Height="20" Canvas.Left="400" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_2" Fill="#8CFFF7" Height="20" Canvas.Left="425" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_3" Fill="#8CFFF7" Height="20" Canvas.Left="450" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_4" Fill="#8CFFF7" Height="20" Canvas.Left="475" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_5" Fill="#8CFFF7" Height="20" Canvas.Left="500" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_6" Fill="#8CFFF7" Height="20" Canvas.Left="525" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_7" Fill="#8CFFF7" Height="20" Canvas.Left="550" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_8" Fill="#8CFFF7" Height="20" Canvas.Left="575" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_9" Fill="#8CFFF7" Height="20" Canvas.Left="600" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_10" Fill="#8CFFF7" Height="20" Canvas.Left="625" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_11" Fill="#8CFFF7" Height="20" Canvas.Left="650" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_12" Fill="#8CFFF7" Height="20" Canvas.Left="675" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_13" Fill="#8CFFF7" Height="20" Canvas.Left="700" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_14" Fill="#8CFFF7" Height="20" Canvas.Left="725" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_15" Fill="#8CFFF7" Height="20" Canvas.Left="750" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_16" Fill="#8CFFF7" Height="20" Canvas.Left="775" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_17" Fill="#8CFFF7" Height="20" Canvas.Left="800" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_18" Fill="#8CFFF7" Height="20" Canvas.Left="825" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_19" Fill="#8CFFF7" Height="20" Canvas.Left="850" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_20" Fill="#8CFFF7" Height="20" Canvas.Left="875" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_21" Fill="#8CFFF7" Height="20" Canvas.Left="900" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_22" Fill="#8CFFF7" Height="20" Canvas.Left="925" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_23" Fill="#8CFFF7" Height="20" Canvas.Left="950" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_24" Fill="#8CFFF7" Height="20" Canvas.Left="975" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_25" Fill="#8CFFF7" Height="20" Canvas.Left="1000" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_26" Fill="#8CFFF7" Height="20" Canvas.Left="1025" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_27" Fill="#8CFFF7" Height="20" Canvas.Left="1050" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_28" Fill="#8CFFF7" Height="20" Canvas.Left="1075" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_29" Fill="#8CFFF7" Height="20" Canvas.Left="1100" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_30" Fill="#8CFFF7" Height="20" Canvas.Left="1125" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="Rec1_31" Fill="#8CFFF7" Height="20" Canvas.Left="1150" Stroke="Black" Canvas.Top="554" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Label x:Name="label_12" Content="0:00-2:00" Canvas.Left="325" Canvas.Top="276" Height="30" Foreground="White"/>
+        <Label x:Name="label_11" Content="2:00-4:00" Canvas.Left="325" Canvas.Top="299" Height="30" Foreground="White"/>
+        <Label x:Name="label_10" Content="4:00-6:00" Canvas.Left="325" Canvas.Top="324" Height="30" Foreground="White"/>
+        <Label x:Name="label_9" Content="6:00-8:00" Canvas.Left="325" Canvas.Top="349" Height="30" Foreground="White"/>
+        <Label x:Name="label_8" Content="8:00-10:00" Canvas.Left="325" Canvas.Top="374" Height="30" Foreground="White"/>
+        <Label x:Name="label_7" Content="10:00-12:00" Canvas.Left="325" Canvas.Top="399" Height="30" Foreground="White"/>
+        <Label x:Name="label_6" Content="12:00-14:00" Canvas.Left="325" Canvas.Top="424" Height="30" Foreground="White"/>
+        <Label x:Name="label_5" Content="14:00-16:00" Canvas.Left="325" Canvas.Top="449" Height="30" Foreground="White"/>
+        <Label x:Name="label_4" Content="16:00-18:00" Canvas.Left="325" Canvas.Top="474" Height="30" Foreground="White"/>
+        <Label x:Name="label_3" Content="18:00-20:00" Canvas.Left="325" Canvas.Top="499" Height="30" Foreground="White"/>
+        <Label x:Name="label_2" Content="20:00-22:00" Canvas.Left="325" Canvas.Top="524" Height="30" Foreground="White"/>
+        <Label x:Name="label_1" Content="22:00-24:00" Canvas.Left="325" Canvas.Top="549" Height="30" Foreground="White"/>
+        <Label x:Name="label1" Content="1" Canvas.Left="402" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label2" Content="2" Canvas.Left="426" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label3" Content="3" Canvas.Left="452" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label4" Content="4" Canvas.Left="476" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label5" Content="5" Canvas.Left="502" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label6" Content="6" Canvas.Left="526" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label7" Content="7" Canvas.Left="552" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label8" Content="8" Canvas.Left="576" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label9" Content="9" Canvas.Left="602" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label10" Content="10" Canvas.Left="623" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label11" Content="11" Canvas.Left="648" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label12" Content="12" Canvas.Left="673" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label13" Content="13" Canvas.Left="698" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label14" Content="14" Canvas.Left="723" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label15" Content="15" Canvas.Left="748" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label16" Content="16" Canvas.Left="773" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label17" Content="17" Canvas.Left="798" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label18" Content="18" Canvas.Left="823" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label19" Content="19" Canvas.Left="848" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label20" Content="20" Canvas.Left="873" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label21" Content="21" Canvas.Left="898" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label22" Content="22" Canvas.Left="923" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label23" Content="23" Canvas.Left="948" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label24" Content="24" Canvas.Left="973" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label25" Content="25" Canvas.Left="998" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label26" Content="26" Canvas.Left="1025" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label27" Content="27" Canvas.Left="1048" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label28" Content="28" Canvas.Left="1073" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label29" Content="29" Canvas.Left="1098" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label30" Content="30" Canvas.Left="1123" Canvas.Top="256" Foreground="White"/>
+        <Label x:Name="label31" Content="31" Canvas.Left="1148" Canvas.Top="256" Foreground="White"/>
+        <Rectangle x:Name ="RecNo" Fill="#8CFFF7" Height="20" Canvas.Left="350" Stroke="Black" Canvas.Top="745" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Rectangle x:Name ="RecYes" Fill="#097FFF" Height="20" Canvas.Left="436" Stroke="Black" Canvas.Top="745" Width="20" RenderTransformOrigin="0.489,0.727"/>
+        <Label x:Name="labelNo" Content="未工作" Canvas.Left="370" Canvas.Top="743" Foreground="White"/>
+        <Label x:Name="label" Content="工作" Canvas.Left="461" Canvas.Top="743" Foreground="White" RenderTransformOrigin="0.471,0.4"/>
+        <Rectangle Fill="#8CFFF7" Height="3" Canvas.Left="340" Stroke="Black" Canvas.Top="628" Width="848"/>
+        <Label x:Name="label32" Content="工作时间（天）" Foreground="White" Canvas.Left="350" Canvas.Top="633" FontSize="18"/>
+        <Rectangle Fill="#8CFFF7" Height="3" Canvas.Left="340" Stroke="Black" Canvas.Top="665" Width="848"/>
+        <Label x:Name="label33" Content="作业时间（小时）" Foreground="White" Canvas.Left="350" Canvas.Top="668" FontSize="18"/>
+        <Rectangle Fill="#8CFFF7" Height="3" Canvas.Left="340" Stroke="Black" Canvas.Top="702" Width="848"/>
+        <Label x:Name="label_d1" Content="一月" Foreground="White" Canvas.Left="498" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d2" Content="二月" Foreground="White" Canvas.Left="548" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d3" Content="三月" Foreground="White" Canvas.Left="598" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d4" Content="四月" Foreground="White" Canvas.Left="648" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d5" Content="五月" Foreground="White" Canvas.Left="698" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d6" Content="六月" Foreground="White" Canvas.Left="748" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d7" Content="七月" Foreground="White" Canvas.Left="798" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d8" Content="八月" Foreground="White" Canvas.Left="848" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d9" Content="九月" Foreground="White" Canvas.Left="898" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d10" Content="十月" Foreground="White" Canvas.Left="948" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d11" Content="十一月" Foreground="White" Canvas.Left="988" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="label_d12" Content="十二月" Foreground="White" Canvas.Left="1048" Canvas.Top="595" FontSize="18"/>
+        <Label x:Name="labeld_1" Content="0" Foreground="White" Canvas.Left="505" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_2" Content="0" Foreground="White" Canvas.Left="555" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_3" Content="0" Foreground="White" Canvas.Left="605" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_4" Content="0" Foreground="White" Canvas.Left="655" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_5" Content="0" Foreground="White" Canvas.Left="705" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_6" Content="0" Foreground="White" Canvas.Left="755" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_7" Content="0" Foreground="White" Canvas.Left="805" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_8" Content="0" Foreground="White" Canvas.Left="855" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_9" Content="0" Foreground="White" Canvas.Left="905" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_10" Content="0" Foreground="White" Canvas.Left="955" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_11" Content="0" Foreground="White" Canvas.Left="1005" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labeld_12" Content="0" Foreground="White" Canvas.Left="1055" Canvas.Top="633" FontSize="18"/>
+        <Label x:Name="labelh_1" Content="0" Foreground="White" Canvas.Left="505" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_2" Content="0" Foreground="White" Canvas.Left="555" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_3" Content="0" Foreground="White" Canvas.Left="605" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_4" Content="0" Foreground="White" Canvas.Left="655" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_5" Content="0" Foreground="White" Canvas.Left="705" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_6" Content="0" Foreground="White" Canvas.Left="755" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_7" Content="0" Foreground="White" Canvas.Left="805" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_8" Content="0" Foreground="White" Canvas.Left="855" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_9" Content="0" Foreground="White" Canvas.Left="905" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_10" Content="0" Foreground="White" Canvas.Left="955" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_11" Content="0" Foreground="White" Canvas.Left="1005" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="labelh_12" Content="0" Foreground="White" Canvas.Left="1055" Canvas.Top="668" FontSize="18"/>
+        <Label x:Name="label_Month" Content="" Canvas.Left="724" Canvas.Top="204" RenderTransformOrigin="2.025,1.04" FontSize="35" Foreground="White"/>
+        <Rectangle x:Name ="Rec1" Fill="#8CFFF7" Height="40" Canvas.Left="1190" Stroke="Black" Canvas.Top="280" Width="40"/>
+        <Rectangle x:Name ="Rec2" Fill="#8CFFF7" Height="40" Canvas.Left="1235" Stroke="Black" Canvas.Top="280" Width="40"/>
+        <Rectangle x:Name ="Rec3" Fill="#8CFFF7" Height="40" Canvas.Left="1280" Stroke="Black" Canvas.Top="280" Width="40"/>
+        <Rectangle x:Name ="Rec4" Fill="#8CFFF7" Height="40" Canvas.Left="1325" Stroke="Black" Canvas.Top="280" Width="40"/>
+        <Rectangle x:Name ="Rec5" Fill="#8CFFF7" Height="40" Canvas.Left="1370" Stroke="Black" Canvas.Top="280" Width="40"/>
+        <Rectangle x:Name ="Rec6" Fill="#8CFFF7" Height="40" Canvas.Left="1415" Stroke="Black" Canvas.Top="280" Width="40"/>
+        <Rectangle x:Name ="Rec7" Fill="#8CFFF7" Height="40" Canvas.Left="1460" Stroke="Black" Canvas.Top="280" Width="40"/>
+        <Rectangle x:Name ="Rec8" Fill="#8CFFF7" Height="40" Canvas.Left="1190" Stroke="Black" Canvas.Top="325" Width="40"/>
+        <Rectangle x:Name ="Rec9" Fill="#8CFFF7" Height="40" Canvas.Left="1235" Stroke="Black" Canvas.Top="325" Width="40"/>
+        <Rectangle x:Name ="Rec10" Fill="#8CFFF7" Height="40" Canvas.Left="1280" Stroke="Black" Canvas.Top="325" Width="40"/>
+        <Rectangle x:Name ="Rec11" Fill="#8CFFF7" Height="40" Canvas.Left="1325" Stroke="Black" Canvas.Top="325" Width="40"/>
+        <Rectangle x:Name ="Rec12" Fill="#8CFFF7" Height="40" Canvas.Left="1370" Stroke="Black" Canvas.Top="325" Width="40"/>
+        <Rectangle x:Name ="Rec13" Fill="#8CFFF7" Height="40" Canvas.Left="1415" Stroke="Black" Canvas.Top="325" Width="40"/>
+        <Rectangle x:Name ="Rec14" Fill="#8CFFF7" Height="40" Canvas.Left="1460" Stroke="Black" Canvas.Top="325" Width="40"/>
+        <Rectangle x:Name ="Rec15" Fill="#8CFFF7" Height="40" Canvas.Left="1190" Stroke="Black" Canvas.Top="370" Width="40"/>
+        <Rectangle x:Name ="Rec16" Fill="#8CFFF7" Height="40" Canvas.Left="1235" Stroke="Black" Canvas.Top="370" Width="40"/>
+        <Rectangle x:Name ="Rec17" Fill="#8CFFF7" Height="40" Canvas.Left="1280" Stroke="Black" Canvas.Top="370" Width="40"/>
+        <Rectangle x:Name ="Rec18" Fill="#8CFFF7" Height="40" Canvas.Left="1325" Stroke="Black" Canvas.Top="370" Width="40"/>
+        <Rectangle x:Name ="Rec19" Fill="#8CFFF7" Height="40" Canvas.Left="1370" Stroke="Black" Canvas.Top="370" Width="40"/>
+        <Rectangle x:Name ="Rec20" Fill="#8CFFF7" Height="40" Canvas.Left="1415" Stroke="Black" Canvas.Top="370" Width="40"/>
+        <Rectangle x:Name ="Rec21" Fill="#8CFFF7" Height="40" Canvas.Left="1460" Stroke="Black" Canvas.Top="370" Width="40"/>
+        <Rectangle x:Name ="Rec22" Fill="#8CFFF7" Height="40" Canvas.Left="1190" Stroke="Black" Canvas.Top="415" Width="40"/>
+        <Rectangle x:Name ="Rec23" Fill="#8CFFF7" Height="40" Canvas.Left="1235" Stroke="Black" Canvas.Top="415" Width="40"/>
+        <Rectangle x:Name ="Rec24" Fill="#8CFFF7" Height="40" Canvas.Left="1280" Stroke="Black" Canvas.Top="415" Width="40"/>
+        <Rectangle x:Name ="Rec25" Fill="#8CFFF7" Height="40" Canvas.Left="1325" Stroke="Black" Canvas.Top="415" Width="40"/>
+        <Rectangle x:Name ="Rec26" Fill="#8CFFF7" Height="40" Canvas.Left="1370" Stroke="Black" Canvas.Top="415" Width="40"/>
+        <Rectangle x:Name ="Rec27" Fill="#8CFFF7" Height="40" Canvas.Left="1415" Stroke="Black" Canvas.Top="415" Width="40"/>
+        <Rectangle x:Name ="Rec28" Fill="#8CFFF7" Height="40" Canvas.Left="1460" Stroke="Black" Canvas.Top="415" Width="40"/>
+        <Rectangle x:Name ="Rec29" Fill="#8CFFF7" Height="40" Canvas.Left="1190" Stroke="Black" Canvas.Top="460" Width="40"/>
+        <Rectangle x:Name ="Rec30" Fill="#8CFFF7" Height="40" Canvas.Left="1235" Stroke="Black" Canvas.Top="460" Width="40"/>
+        <Rectangle x:Name ="Rec31" Fill="#8CFFF7" Height="40" Canvas.Left="1280" Stroke="Black" Canvas.Top="460" Width="40"/>
+        <Label x:Name="label_Day1" Content="01" Canvas.Left="1190" Canvas.Top="280" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day2" Content="02" Canvas.Left="1235" Canvas.Top="280" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day3" Content="03" Canvas.Left="1280" Canvas.Top="280" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day4" Content="04" Canvas.Left="1325" Canvas.Top="280" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day5" Content="05" Canvas.Left="1370" Canvas.Top="280" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day6" Content="06" Canvas.Left="1415" Canvas.Top="280" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day7" Content="07" Canvas.Left="1460" Canvas.Top="280" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day8" Content="08" Canvas.Left="1190" Canvas.Top="325" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day9" Content="09" Canvas.Left="1235" Canvas.Top="325" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day10" Content="10" Canvas.Left="1280" Canvas.Top="325" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day11" Content="11" Canvas.Left="1325" Canvas.Top="325" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day12" Content="12" Canvas.Left="1370" Canvas.Top="325" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day13" Content="13" Canvas.Left="1415" Canvas.Top="325" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day14" Content="14" Canvas.Left="1460" Canvas.Top="325" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day15" Content="15" Canvas.Left="1190" Canvas.Top="370" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day16" Content="16" Canvas.Left="1235" Canvas.Top="370" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day17" Content="17" Canvas.Left="1280" Canvas.Top="370" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day18" Content="18" Canvas.Left="1325" Canvas.Top="370" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day19" Content="19" Canvas.Left="1370" Canvas.Top="370" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day20" Content="20" Canvas.Left="1415" Canvas.Top="370" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day21" Content="21" Canvas.Left="1460" Canvas.Top="370" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day22" Content="22" Canvas.Left="1190" Canvas.Top="415" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day23" Content="23" Canvas.Left="1235" Canvas.Top="415" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day24" Content="24" Canvas.Left="1280" Canvas.Top="415" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day25" Content="25" Canvas.Left="1325" Canvas.Top="415" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day26" Content="26" Canvas.Left="1370" Canvas.Top="415" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day27" Content="27" Canvas.Left="1415" Canvas.Top="415" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day28" Content="28" Canvas.Left="1460" Canvas.Top="415" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day29" Content="29" Canvas.Left="1190" Canvas.Top="460" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day30" Content="30" Canvas.Left="1235" Canvas.Top="460" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+        <Label x:Name="label_Day31" Content="31" Canvas.Left="1280" Canvas.Top="460" Width="40" Height="40" HorizontalAlignment="Center" FontSize="25"/>
+
+    </Canvas>
+</controls:BasePage>
+

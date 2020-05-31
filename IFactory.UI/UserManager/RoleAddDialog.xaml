@@ -1,0 +1,67 @@
+﻿<Window x:Class="IFactory.UI.UserManager.RoleAddDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:IFactory.UI.UserManager"
+        xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+        MouseDown="Window_MouseDown" Loaded="Window_Loaded" Title="RoleAddDialog" Height="625" Width="531"
+        Background="Transparent" AllowsTransparency="true" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FrameworkElement.Margin" Value="0,0,8,0"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.Foreground" Value="Black"/>
+            <Setter Property="TextBlock.FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseDialogTextBoxStyle}">
+            <Setter Property="FrameworkElement.Width" Value="260"/>
+            <Setter Property="FrameworkElement.Height" Value="36"/>
+        </Style>
+        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseDialogPasswordBoxStyle}">
+            <Setter Property="FrameworkElement.Width" Value="260"/>
+            <Setter Property="FrameworkElement.Height" Value="36"/>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource BaseDialogComboBoxStyle}">
+            <Setter Property="FrameworkElement.Width" Value="260"/>
+            <Setter Property="FrameworkElement.Height" Value="36"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+        </Style>
+        <HierarchicalDataTemplate x:Key="Module" ItemsSource="{Binding Children}">
+            <StackPanel Orientation="Horizontal" Margin="0,3">
+                <CheckBox VerticalAlignment="Center" IsChecked="{Binding IsChecked}"/>
+                <Image Source="/IFactory.UI;component/Assets/file.png" Width="24" Height="24" Margin="3,0,0,0"/>
+                <TextBlock Margin="3,0" VerticalAlignment="Center" Text="{Binding Path=Text}"/>
+            </StackPanel>
+        </HierarchicalDataTemplate>
+    </FrameworkElement.Resources>
+    <Grid>
+        <controls:DialogBackground Column="0" Row="0"/>
+        <Canvas Grid.Column="0" Grid.Row="0">
+            <Button Click="btnClose_Click" x:Name="btnClose" Style="{StaticResource DialogCloseButtonStyle}"/>
+            <Label x:Name="dialogTitle" Content="添加角色" Style="{StaticResource DialogTitle}"/>
+            <Grid Width="531" Canvas.Top="58">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="名称："/>
+                <TextBox x:Name="txtUserName" Grid.Column="1" Grid.Row="0" Text="{Binding RoleName}"/>
+                <TextBlock Grid.Column="0" Grid.Row="1" Text="备注："/>
+                <TextBox x:Name="txtName" Grid.Column="1" Grid.Row="1" Text="{Binding Remark, Mode=TwoWay}"/>
+                <TextBlock Grid.Column="0" Grid.Row="2" Text="权限："/>
+                <TreeView x:Name="tvMenus" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Width="340" Height="320"
+                  Margin="0,10" ItemTemplate="{StaticResource Module}" ItemsSource="{Binding Menus}"/>
+            </Grid>
+            <Button Click="btnOK_Click" x:Name="btnOK" Style="{StaticResource BaseDialogButtonStyle}" Content="确认"
+              Width="200" Height="42" Canvas.Left="170" Canvas.Top="530" IsDefault="true"/>
+        </Canvas>
+    </Grid>
+</Window>

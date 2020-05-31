@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A3BA131-D2A8-4C1B-903C-E7DC069C275E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ATL_MC.MainCtrl</RootNamespace>
+    <AssemblyName>ATL_MC.MainCtrl</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ATL_MC.BIS">
+      <HintPath>..\..\ATL_MC.BIS\bin\Debug\ATL_MC.BIS.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.CtrlIni">
+      <HintPath>..\..\ATL_MC.CtrlIni\bin\Debug\ATL_MC.CtrlIni.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.EpsonScaraRobotController, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ATL_MC.EpsonScaraRobotController\ATL_MC.EpsonScaraRobotController\bin\Debug\ATL_MC.EpsonScaraRobotController.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.IBG_LOG">
+      <HintPath>..\..\ATL_MC.IBG_LOG\ATL_MC.IBG_LOG\bin\Debug\ATL_MC.IBG_LOG.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.KEYENCE.PLC">
+      <HintPath>..\..\ATL_MC.KEYENCE.PLC\ATL_MC.KEYENCE.PLC\bin\Debug\ATL_MC.KEYENCE.PLC.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.SR_1000">
+      <HintPath>..\..\ATL_MC.SR_1000\bin\Debug\ATL_MC.SR_1000.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.Vision, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ATL_MC.Vision\bin\Debug\ATL_MC.Vision.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC_KangShiDaLight, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ATL_MC_KangShiDaLight\ATL_MC_KangShiDaLight\bin\Debug\ATL_MC_KangShiDaLight.dll</HintPath>
+    </Reference>
+    <Reference Include="BaslerCamera">
+      <HintPath>..\..\BaslerCamera\bin\Debug\BaslerCamera.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.LocalApi">
+      <HintPath>..\..\IFactory.LocalAPI\bin\Debug\IFactory.LocalApi.dll</HintPath>
+    </Reference>
+    <Reference Include="MyExcel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MyExcel\bin\Debug\MyExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1" />
+    <Reference Include="Polly, Version=5.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Polly.5.9.0\lib\net45\Polly.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enum\EnumBarcodeScanner_ResultType.cs" />
+    <Compile Include="Enum\EnumBisReturn_ResultType.cs" />
+    <Compile Include="Enum\EnumDefaultPosition.cs" />
+    <Compile Include="Enum\EnumProcess.cs" />
+    <Compile Include="Enum\EnumTrayType.cs" />
+    <Compile Include="LogModule\LogModule.cs" />
+    <Compile Include="MainCtrl.cs" />
+    <Compile Include="Polly\PolicyProfile.cs" />
+    <Compile Include="System\Config\ProductParam.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System\Config\ProgramConfig.cs" />
+    <Compile Include="System\Config\SimulateConfig.cs" />
+    <Compile Include="System\Config\SystemConfig.cs" />
+    <Compile Include="System\StatusManager.cs" />
+    <Compile Include="System\Status\PLCStatus.cs" />
+    <Compile Include="System\Status\RobotStatus.cs" />
+    <Compile Include="System\Status\SystemStatus.cs" />
+    <Compile Include="Threads\ThreadClear.cs" />
+    <Compile Include="Threads\ThreadHome.cs" />
+    <Compile Include="Threads\ThreadIOFunction.cs" />
+    <Compile Include="Threads\ThreadMoveIn.cs" />
+    <Compile Include="Threads\ThreadPLCStatus.cs" />
+    <Compile Include="Threads\ThreadRobot.cs" />
+    <Compile Include="Threads\ThreadRobotIO.cs" />
+    <Compile Include="Threads\ThreadTray.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ATL_MC.Common\PVCommon.csproj">
+      <Project>{ab26958d-7fcb-48fd-ad77-517ddf299475}</Project>
+      <Name>PVCommon</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ATL_MC.DAL\ATL_MC.DAL.csproj">
+      <Project>{da6cfeb0-9c14-423f-862a-4fd10d79305d}</Project>
+      <Name>ATL_MC.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

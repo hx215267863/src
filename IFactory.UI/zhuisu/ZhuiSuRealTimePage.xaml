@@ -1,0 +1,124 @@
+﻿<controls:BasePage x:Class="IFactory.UI.zhuisu.ZhuiSuRealTimePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IFactory.UI.zhuisu"
+       xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+      Loaded="Page_Loaded" Title="RoleManagerPage">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="16"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <Image Style="{StaticResource RightPanelBorder}"/>
+        <Canvas Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="实时追溯"/>
+        </Canvas>
+        <DataGrid x:Name="dataGrid" Style="{StaticResource DataGridStyle1}" FontSize="14" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Iden" HeaderStyle="{StaticResource LeftColumnStyle}" Width="140"
+                            Binding="{Binding Iden}"/>
+                <DataGridTextColumn Header="产品型号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="290"
+                            Binding="{Binding ProductNo }"/>
+                <DataGridTextColumn Header="电芯条码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding BatteryBarCode}"/>
+                <DataGridTextColumn Header="成品编码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding EndProductno}"/>
+                <DataGridTextColumn Header="操作员" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding Operator}"/>
+                <DataGridTextColumn Header="设备组编号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding DeviceGroupDID}"/>
+                <DataGridTextColumn Header="工序编号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding ProcessDID}"/>
+                <DataGridTextColumn Header="设备编号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding FacilityDID}"/>
+                <DataGridTextColumn Header="序号" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding No}"/>
+                <DataGridTextColumn Header="生产日期" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding StartDate, StringFormat='yyyy-MM-dd HH:mm:ss'}"/>
+                <DataGridTextColumn Header="测试结果" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding Result}"/>
+                <DataGridTextColumn Header="背面缺陷检测结果" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding BackReturn}"/>
+                <DataGridTextColumn Header="背面缺陷检测错误码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding BackErrcode}"/>
+                <DataGridTextColumn Header="正面缺陷检测结果" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding FrontRetrun}"/>
+                <DataGridTextColumn Header="正面缺陷检测错误码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding FrontErrcode}"/>
+                <DataGridTextColumn Header="Hipot检测结果" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding HipotReturn}"/>
+                <DataGridTextColumn Header="Hipot检测错误码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding HipotErrcode}"/>
+                <DataGridTextColumn Header="侧封高度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SidestripHeight}"/>
+                <DataGridTextColumn Header="侧封宽度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SidestripWidth}"/>
+                <DataGridTextColumn Header="顶封宽度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding TopstripHeight}"/>
+                <DataGridTextColumn Header="主体宽度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding MainBodyWidth}"/>
+                <DataGridTextColumn Header="主体长度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding MainBodyHeight}"/>
+                <DataGridTextColumn Header="极耳中心距" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding DistanceBetweenTabs}"/>
+                <DataGridTextColumn Header="左极耳左边距" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding DistanceBetweenTab1Left}"/>
+                <DataGridTextColumn Header="右极耳左边距" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding DistanceBetwwnTab2Left}"/>
+                <DataGridTextColumn Header="气袋宽度" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding BagAreaWidth}"/>
+                <DataGridTextColumn Header="右极耳与槽位印" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding TabALToSlotDistanceRight}"/>
+                <DataGridTextColumn Header="左极耳与槽位印" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding TabALToSlotDistanceLeft}"/>
+                <DataGridTextColumn Header="左Sealant高度1" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SealantHeightOfLeft1}"/>
+                <DataGridTextColumn Header="左Sealant高度2" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SealantHeightOfLeft2}"/>
+                <DataGridTextColumn Header="右Sealant高度1" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SealantHeightOfRight1}"/>
+                <DataGridTextColumn Header="右Sealant高度2" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SealantHeightOfRight2}"/>
+                <DataGridTextColumn Header="左Sealant与槽位印距离" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SealantToSlotDistanceLeft}"/>
+                <DataGridTextColumn Header="右Sealant与槽位印距离" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SealantToSlotDistanceRight}"/>
+                <DataGridTextColumn Header="测量模式" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding measmode}"/>
+                <DataGridTextColumn Header="边封位置点1" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SidePoint1}"/>
+                <DataGridTextColumn Header="边封位置点2" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SidePoint2}"/>
+                <DataGridTextColumn Header="边封位置点3" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding SidePoint3}"/>
+                <DataGridTextColumn Header="顶封位置点1" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding TopPoint1}"/>
+                <DataGridTextColumn Header="顶封位置点2" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding TopPoint2}"/>
+                <DataGridTextColumn Header="顶封位置点3" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding TopPoint3}"/>
+                <DataGridTextColumn Header="顶封极耳位置点1" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding TabPoint1}"/>
+                <DataGridTextColumn Header="顶封极耳位置点2" HeaderStyle="{StaticResource RightColumnStyle}" Width="250"
+                            Binding="{Binding TabPoint2}"/>
+                <DataGridTemplateColumn Header="结尾" HeaderStyle="{StaticResource RightColumnStyle}" Width="0">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Style="{StaticResource CellLinkButtonStyle}" Content="查看详情"
+                        Command="{Binding DataContext.ViewDetailCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                        CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <controls:Pager PageNumberChanged="pager_PageNumberChanged" x:Name="pager" Style="{StaticResource PagerStyle1}"
+                    Visibility="Collapsed"/>
+    </Canvas>
+ </controls:BasePage>

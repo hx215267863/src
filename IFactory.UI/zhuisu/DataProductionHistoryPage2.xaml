@@ -1,0 +1,164 @@
+﻿<controls:BasePage x:Class="IFactory.UI.zhuisu.DataProductionHistoryPage2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IFactory.UI.zhuisu"
+      xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+      Loaded="Page_Loaded" Title="RoleManagerPage">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseDataGridStyle}">
+            <Setter Property="FrameworkElement.MaxWidth" Value="1145"/>
+            <Setter Property="FrameworkElement.Height" Value="202"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="16"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+        <Style x:Key="FilterTextStyle" TargetType="{x:Type Label}">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Padding" Value="8,0"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ReportTitleStyle" TargetType="{x:Type Label}">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBoxStyle}">
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="FrameworkElement.Width" Value="166"/>
+            <Setter Property="FrameworkElement.Height" Value="23"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="FrameworkElement.MinHeight" Value="26"/>
+            <Setter Property="FrameworkElement.Height" Value="23"/>
+            <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="DatePicker.IsTodayHighlighted" Value="true"/>
+            <Setter Property="Control.Padding" Value="0"/>
+            <Setter Property="FrameworkElement.Margin" Value="0"/>
+            <Setter Property="DatePicker.SelectedDate" Value="{x:Null}"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="UIElement.SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Control.BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop Color="#24bdfa" Offset="0"/>
+                        <GradientStop Color="#FFFFCB97" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DatePicker}">
+                        <Grid x:Name="PART_Root" Margin="0" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="#0f93e7" StrokeThickness="2" Grid.Column="0"/>
+                            <Grid x:Name="PART_InnerGrid" Margin="0" Column="0" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <DatePickerTextBox x:Name="PART_TextBox" Focusable="false" HorizontalAlignment="Stretch" Margin="4,0"
+                                   SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" IsHitTestVisible="true"
+                                   IsReadOnly="true" VerticalAlignment="Center" FontFamily="{TemplateBinding Control.FontFamily}"
+                                   Foreground="{TemplateBinding Control.Foreground}" FontSize="{TemplateBinding Control.FontSize}"
+                                   BorderThickness="0" Background="Transparent"
+                                   Text="{Binding Path=SelectedDate, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}, StringFormat='yyyy-MM-dd'}"/>
+                                <ToggleButton Grid.Column="0" IsTabStop="false" Style="{StaticResource DatePickerToggleButtonStyle}"
+                              ClickMode="Press" Background="Transparent"
+                              IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <Popup x:Name="PART_Popup" Focusable="false" AllowsTransparency="true" Placement="Bottom"
+                       StaysOpen="false" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=PART_TextBox}"/>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <Image Style="{StaticResource RightPanelBorder}"/>
+        <Canvas Style="{StaticResource TabHeaderStyle1}">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="历史生产数据"/>
+        </Canvas>
+        <StackPanel Canvas.Left="340" Canvas.Top="194" Width="1180">
+            <Border CornerRadius="20" BorderThickness="1" BorderBrush="#5fe4fa" Height="583">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="38"/>
+                        </Grid.RowDefinitions>
+                        <Label Content="关键字" HorizontalAlignment="Right" Grid.Column="0" Style="{StaticResource FilterTextStyle}"/>
+                        <TextBox HorizontalAlignment="Left" Grid.Column="1" Style="{StaticResource TextBoxStyle}"
+                     Text="{Binding Keyword}" Height="22" Margin="0,0,0,8" VerticalAlignment="Bottom" TextChanged="TextBox_TextChanged"/>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                            <Label Content="时间" Style="{StaticResource FilterTextStyle}"/>
+                            <DatePicker Width="140" SelectedDate="{Binding TimeStart}" Margin="0,6"/>
+                            <Label Content="至" Style="{StaticResource FilterTextStyle}"/>
+                            <DatePicker Width="140" SelectedDate="{Binding TimeEnd}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="3" Orientation="Horizontal">
+                            <Button Click="btnSearchList_Click" x:Name="btnSearchList"
+                      Style="{StaticResource BaseSmallBorderButtonStyle}" Content="查询" Width="80" Height="24"
+                      VerticalAlignment="Bottom" Margin="0,0,0,7"/>
+                            <Button Click="btnExport_Click" x:Name="btnExport" Style="{StaticResource BaseSmallBorderButtonStyle}"
+                      Content="导出" Width="80" Height="24" VerticalAlignment="Center" Margin="20,0"/>
+                        </StackPanel>
+                    </Grid>
+                    <DataGrid x:Name="dataGrid" Style="{StaticResource DataGridStyle1}" FontSize="14" Height="494" >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="编号" HeaderStyle="{StaticResource LeftColumnStyle}" Width="140"
+                            Binding="{Binding Iden}"/>
+                            <DataGridTextColumn Header="时间" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="290"
+                            Binding="{Binding ProductTime}"/>
+                            <DataGridTextColumn Header="成品编码" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="290"
+                            Binding="{Binding code}"/>
+                            <DataGridTextColumn Header="产量" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding CellTotal}"/>
+                            <DataGridTextColumn Header="良品量" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding OKCount}"/>
+                            <DataGridTextColumn Header="良品率" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding OKRate}"/>
+                            <DataGridTextColumn Header="开机时间" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding RunningTime}"/>
+                            <DataGridTextColumn Header="停机时间" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding StopTime}"/>
+                            <DataGridTextColumn Header="待机时间" HeaderStyle="{StaticResource MiddleColumnStyle}" Width="250"
+                            Binding="{Binding WaitTime}"/>
+                            <DataGridTextColumn Header="产能" HeaderStyle="{StaticResource RightColumnStyle}" Width="250"
+                            Binding="{Binding EnableProduction}"/>
+                            <DataGridTemplateColumn Header="结尾" HeaderStyle="{StaticResource RightColumnStyle}" Width="0">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Style="{StaticResource CellLinkButtonStyle}" Content="查看详情"
+                              Command="{Binding DataContext.ViewDetailCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                              CommandParameter="{Binding Path=SelectedItem, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=DataGrid}}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Canvas>
+                        <controls:SmallPager PageNumberChanged="pager_PageNumberChanged" x:Name="pager" Visibility="Collapsed" Width="auto"
+                                 Canvas.Right="150" Canvas.Top="10"/>
+                    </Canvas>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Canvas>
+</controls:BasePage>

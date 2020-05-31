@@ -1,0 +1,63 @@
+﻿<Window x:Class="IFactory.UI.UserManager.BarCodeCheckDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IFactory.UI.UserManager"
+        xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+        MouseDown="Window_MouseDown" Loaded="Window_Loaded" Title="BarCodeCheckDialog" Height="239.5" Width="531"
+        Background="Transparent" AllowsTransparency="true" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="FrameworkElement.Margin" Value="0,0,8,0"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="TextBlock.Foreground" Value="Black"/>
+            <Setter Property="TextBlock.FontSize" Value="16"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseDialogTextBoxStyle}">
+            <Setter Property="FrameworkElement.Width" Value="260"/>
+            <Setter Property="FrameworkElement.Height" Value="36"/>
+        </Style>
+        <Style TargetType="{x:Type PasswordBox}" BasedOn="{StaticResource BaseDialogPasswordBoxStyle}">
+            <Setter Property="FrameworkElement.Width" Value="260"/>
+            <Setter Property="FrameworkElement.Height" Value="36"/>
+        </Style>
+        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource BaseDialogComboBoxStyle}">
+            <Setter Property="FrameworkElement.Width" Value="260"/>
+            <Setter Property="FrameworkElement.Height" Value="36"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+        </Style>
+        <DataTemplate x:Key="CraftStateTemplate">
+            <Grid>
+                <CheckBox Margin="5" Content="{Binding CraftName}" IsChecked="{Binding Selected}"/>
+            </Grid>
+        </DataTemplate>
+    </FrameworkElement.Resources>
+    <Grid>
+        <controls:DialogBackground Column="0" Row="0" Margin="0,0,0,10"/>
+        <Canvas Grid.Column="0" Grid.Row="0">
+            <Button Click="btnClose_Click" x:Name="btnClose" Style="{StaticResource DialogCloseButtonStyle}"/>
+            <Label x:Name="dialogTitle" Content="输入用户信息" Style="{StaticResource DialogTitle}"/>
+            <Grid Width="531" Canvas.Top="58" Height="172">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="55"/>
+                    <RowDefinition Height="250"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="BarCode："/>
+                <TextBox x:Name="BarCode" Grid.Column="1" Grid.Row="0" Text="{Binding barcode}" Margin="0,10,0,9"/>
+            </Grid>
+            <Button Click="btnOK_Click" x:Name="btnOK" Style="{StaticResource BaseDialogButtonStyle}" Content="确认"
+              Width="200" Height="42" Canvas.Left="170" Canvas.Top="156" IsDefault="true" RenderTransformOrigin="0.5,-4.655"/>
+        </Canvas>
+    </Grid>
+</Window>

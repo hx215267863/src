@@ -1,0 +1,840 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KvComm</name>
+    </assembly>
+    <members>
+        <member name="T:ETHAN.PLC.KvComm">
+            <summary>
+            Keyence Kv Series PLC Communication
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvComm.RevTimeout">
+            <summary>
+            超时时间
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvComm.MaxBufferSize">
+            <summary>
+            接收区缓存大小
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvComm.RevBuffer">
+            <summary>
+            接收区缓存
+            </summary>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.#ctor">
+            <summary>
+            Kv Series Comm
+            </summary>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Kv Series Comm
+            </summary>
+            <param name="plcIP">PLC IP 地址</param>
+            <param name="plcPort">PLC 端口，默认8501</param>
+            <param name="localPort">本地端口，默认系统分配</param>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.SendWaitReturn(System.String)">
+            <summary>
+            发送指令并等待结果
+            </summary>
+            <param name="strSend">指令发送</param>
+            <returns>结果返回</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.SendWithResult(System.String)">
+            <summary>
+            发送指令并等待结果
+            </summary>
+            <param name="strSend">指令发送</param>
+            <returns>结果返回</returns>
+        </member>
+        <member name="P:ETHAN.PLC.KvComm.Connected">
+            <summary>
+            PLC 是否已连接
+            </summary>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.Open">
+            <summary>
+            打开PLC 连接
+            </summary>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.Close">
+            <summary>
+            关闭PLC连接
+            </summary>
+            <returns>是否成功关闭连接</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PartName(System.String,System.Int32)">
+            <summary>
+            获取新软元件名
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="index">索引</param>
+            <returns>新软元件名</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PartName(System.String,System.String,System.Int32)">
+            <summary>
+            获取新软元件名
+            </summary>
+            <param name="partType">软元件类型</param>
+            <param name="partIndex">软元件编号</param>
+            <param name="index">索引</param>
+            <returns>新软元件名</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PartSeparate(System.String,System.String@,System.String@)">
+            <summary>
+            分割软元件
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="partType">软元件类型</param>
+            <param name="partNum">软元件地址</param>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.IsRelay16(System.String)">
+            <summary>
+            获取该软元件是否为继电器
+            </summary>
+            <param name="partName">软元件名</param>
+            <returns>是否为继电器</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.IsDefaultBit(System.String)">
+            <summary>
+            获取该软元件默认是否按位读取
+            </summary>
+            <param name="partName">软元件名</param>
+            <returns>是否按位读取</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PartNum(System.String,System.Int32)">
+            <summary>
+            获取新元件编号
+            </summary>
+            <param name="partType">元件类型</param>
+            <param name="startNum">元件编号</param>
+            <returns>元件编号</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.GetPartType(System.String)">
+            <summary>
+            获取软元件类型
+            </summary>
+            <param name="partName">软元件名称</param>
+            <returns>软元件类型</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.GetPartNum(System.String,System.Boolean)">
+            <summary>
+            获取软元件编号
+            </summary>
+            <param name="partIndex">软元件标号</param>
+            <param name="bHex">是否16进制</param>
+            <returns>软元件编号</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.GetPartNum(System.String,System.String)">
+            <summary>
+            获取软元件编号
+            </summary>
+            <param name="partType">软元件类型</param>
+            <param name="partIndex">软元件标号</param>
+            <returns>软元件编号</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.SetPlcDateTime">
+            <summary>
+            使用本地时间，设置PLC 日历时间
+            </summary>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.GetPlcError">
+            <summary>
+            获取PLC错误信息
+            </summary>
+            <returns>PLC错误信息</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.GetRunMode">
+            <summary>
+            获取PLC 运行模式
+            </summary>
+            <returns>PLC 运行模式</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ForceBit(System.String,System.Int32,System.Boolean)">
+            <summary>
+            强制置位/复位继电器
+            </summary>
+            <param name="relayName">继电器名称</param>
+            <param name="setCount">强制个数</param>
+            <param name="bSet">是否置位</param>
+            <returns>结果, true:完成</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ForceSet(System.String,System.Int32)">
+            <summary>
+            强制置位继电器
+            </summary>
+            <param name="relayName">继电器名称</param>
+            <param name="setCount">强制置位个数</param>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ForceReset(System.String,System.Int32)">
+            <summary>
+            强制复位继电器
+            </summary>
+            <param name="relayName">继电器名称</param>
+            <param name="resetCount">强制复位个数</param>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.GetPartComment(System.String)">
+            <summary>
+            读取软元件注释
+            </summary>
+            <param name="partName">软元件名称</param>
+            <returns>软元件注释</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.BankSwitch(System.Int32)">
+            <summary>
+            切换文件寄存器的 BANK
+            </summary>
+            <param name="bankNo">BANK 编号</param>
+            <returns>切换结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PlcRead(System.String,System.Int32,ETHAN.PLC.KvExt.KvDataType)">
+            <summary>
+            读取PLC 内容
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取数量</param>
+            <param name="dataType">读取类型</param>
+            <returns>PLC回复字符传</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PlcBytesRead(System.String,System.Int32)">
+            <summary>
+            多个软元件读取, 返回字节数组
+            </summary>
+            <param name="partName">软元件名称</param>
+            <param name="readCount">软元件个数</param>
+            <returns>结果返回</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.MultiPlcRead(System.String,System.Int32,ETHAN.PLC.KvExt.KvDataType)">
+            <summary>
+            多个软元件读取, 返回字符串数组
+            </summary>
+            <param name="partName">软元件名称</param>
+            <param name="readCount">软元件个数</param>
+            <param name="dataType">软元件读取类型</param>
+            <returns>结果返回</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadBool(System.String)">
+            <summary>
+            继电器位读取
+            </summary>
+            <param name="relayName">继电器名称</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadShort(System.String)">
+            <summary>
+            以16有符号形式读取软元件
+            </summary>
+            <param name="partName">软元件名称</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadUshort(System.String)">
+            <summary>
+            以16无符号形式读取软元件
+            </summary>
+            <param name="partName">软元件名称</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadInt(System.String)">
+            <summary>
+            以32有符号形式读取软元件
+            </summary>
+            <param name="relayName">软元件名称</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadUint(System.String)">
+            <summary>
+            以32无符号形式读取软元件
+            </summary>
+            <param name="partName">软元件名称</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadFloat(System.String)">
+            <summary>
+            以单精度浮点型读取软元件
+            </summary>
+            <param name="partName">软元件名称</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadDouble(System.String)">
+            <summary>
+            以双精度浮点型读取软元件
+            </summary>
+            <param name="partName">软元件名称</param>
+            <returns>读取结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadAscString(System.String,System.Int32)">
+            <summary>
+            以ASCII方式读取解析字符串
+            </summary>
+            <param name="partName">软元件起始地址</param>
+            <param name="readLength">读取长度</param>
+            <returns>字符串解析结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ReadUniString(System.String,System.Int32)">
+            <summary>
+            以Unicode方式读取解析字符串
+            </summary>
+            <param name="partName">软元件起始地址</param>
+            <param name="readLength">读取长度</param>
+            <returns>字符串解析结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListBoolRead(System.String,System.Int32)">
+            <summary>
+            读取多个继电器，列表返回结果
+            </summary>
+            <param name="relayName">起始继电器名</param>
+            <param name="readCount">读取个数，最大1000</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListShortRead(System.String,System.Int32)">
+            <summary>
+            读取多个16位有符号软元件，列表返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大1000</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListUshortRead(System.String,System.Int32)">
+            <summary>
+            读取多个16位无符号软元件，列表返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大1000</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListIntRead(System.String,System.Int32)">
+            <summary>
+            读取多个32位有符号软元件，列表返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大500</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListUintRead(System.String,System.Int32)">
+            <summary>
+            读取多个32位无符号软元件，列表返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大500</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListFloatRead(System.String,System.Int32)">
+            <summary>
+            读取多个单精度浮点型软元件，列表返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大500</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListDoubleRead(System.String,System.Int32)">
+            <summary>
+            读取多个双精度浮点型软元件，列表返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大500</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.DicBoolRead(System.String,System.Int32)">
+            <summary>
+            读取多个继电器，字典返回结果
+            </summary>
+            <param name="relayName">起始继电器名</param>
+            <param name="readCount">读取个数，最大1000</param>
+            <returns>结果字典</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.DicShortRead(System.String,System.Int32)">
+            <summary>
+            读取多个16位有符号软元件，字典返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大1000</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.DicUshortRead(System.String,System.Int32)">
+            <summary>
+            读取多个16位无符号软元件，字典返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大1000</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.DicIntRead(System.String,System.Int32)">
+            <summary>
+            读取多个32位有符号软元件，字典返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大500</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.DicUintRead(System.String,System.Int32)">
+            <summary>
+            读取多个32位无符号软元件，字典返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大500</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.DicFloatRead(System.String,System.Int32)">
+            <summary>
+            读取多个单精度浮点型软元件，字典返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大500</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.DicDoubleRead(System.String,System.Int32)">
+            <summary>
+            读取多个双精度浮点型软元件，字典返回结果
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="readCount">读取个数，最大250</param>
+            <returns>结果列表</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.MassDicReadRelays(System.String,System.Int32)">
+            <summary>
+            读取超过1000个继电器，字典返回结果
+            </summary>
+            <param name="relayName">起始继电器名</param>
+            <param name="readCount">读取个数，最大16000</param>
+            <returns>结果字典</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PlcBytesWrite(System.String,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            将字节数组写入PLC存储区
+            </summary>
+            <param name="partName">开始写入软元件</param>
+            <param name="dataArray">写入字节</param>
+            <param name="offset">字节偏移量</param>
+            <param name="count">写入个数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PlcWrite``1(System.String,``0)">
+            <summary>
+            PLC 数值写入
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="value">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.PlcWriteList``1(System.String,System.Collections.Generic.List{``0},System.Int32)">
+            <summary>
+            PLC 数值列表写入
+            </summary>
+            <param name="partName">起始软元件名</param>
+            <param name="listValue">写入数值列表</param>
+            <param name="count">写入数值个数</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.WriteUshort(System.String,System.UInt16)">
+            <summary>
+            PLC 数值写入16位无符号数值
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="value">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.WriteShort(System.String,System.Int16)">
+            <summary>
+            PLC 数值写入16位有符号数值
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="value">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.WriteUint(System.String,System.UInt32)">
+            <summary>
+            PLC 数值写入32位无符号数值
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="value">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.WriteInt(System.String,System.Int32)">
+            <summary>
+            PLC 数值写入32位有符号数值
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="value">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.WriteFloat(System.String,System.Single)">
+            <summary>
+            PLC 数值写入单精度浮点型
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="value">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.WriteDouble(System.String,System.Double)">
+            <summary>
+            PLC 数值写入双精度浮点型
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="value">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.WriteUniString(System.String,System.String,System.Int32)">
+            <summary>
+            将字符串以Unicode写入PLC存储区
+            </summary>
+            <param name="partName">开始写入软元件</param>
+            <param name="msg">写入信息</param>
+            <param name="writeCount">写入长度</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.WriteAscString(System.String,System.String,System.Int32)">
+            <summary>
+            将字符串以ASCII写入PLC存储区
+            </summary>
+            <param name="partName">开始写入软元件</param>
+            <param name="msg">写入信息</param>
+            <param name="writeCount">写入长度</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListWriteUshort(System.String,System.Collections.Generic.List{System.UInt16})">
+            <summary>
+            PLC 数值写入16位无符号数值
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="listValue">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListWriteShort(System.String,System.Collections.Generic.List{System.Int16})">
+            <summary>
+            PLC 数值写入16位有符号数值
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="listValue">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListWriteUint(System.String,System.Collections.Generic.List{System.UInt32})">
+            <summary>
+            PLC 数值写入32位无符号数值
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="listValue">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListWriteInt(System.String,System.Collections.Generic.List{System.Int32})">
+            <summary>
+            PLC 数值写入32位有符号数值
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="listValue">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListWriteFloat(System.String,System.Collections.Generic.List{System.Single})">
+            <summary>
+            PLC 数值写入单精度浮点型
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="listValue">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="M:ETHAN.PLC.KvComm.ListWriteDouble(System.String,System.Collections.Generic.List{System.Double})">
+            <summary>
+            PLC 数值写入双精度浮点型
+            </summary>
+            <param name="partName">软元件名</param>
+            <param name="listValue">写入数值</param>
+            <returns>写入结果</returns>
+        </member>
+        <member name="T:ETHAN.PLC.KvExt.Extensions">
+            <summary>
+            拓展功能
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.Extensions.FilePath">
+            <summary>
+            日志路径
+            </summary>
+        </member>
+        <member name="M:ETHAN.PLC.KvExt.Extensions.Log(System.Exception)">
+            <summary>
+            Exception 日志功能拓展
+            </summary>
+            <param name="ex">Exception</param>
+        </member>
+        <member name="T:ETHAN.PLC.KvExt.KvDataType">
+            <summary>
+            Kv 数据类型
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvDataType.Default">
+            <summary>
+            默认类型
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvDataType.Bool">
+            <summary>
+            位
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvDataType.Ushort">
+            <summary>
+            16 位无符号十进制数
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvDataType.Short">
+            <summary>
+            16 位有符号十进制数
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvDataType.Uint">
+            <summary>
+            32 位无符号十进制数
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvDataType.Int">
+            <summary>
+            32 位无符号十进制数
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvDataType.Hex">
+            <summary>
+            16 位十六进制值数
+            </summary>
+        </member>
+        <member name="T:ETHAN.PLC.KvExt.KvPartType">
+            <summary>
+            Kv 软元件类型
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.R">
+            <summary>
+            继电器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.B">
+            <summary>
+            链路继电器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.MR">
+            <summary>
+            内部辅助继电器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.LR">
+            <summary>
+            锁存继电器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.CR">
+            <summary>
+            控制继电器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.VB">
+            <summary>
+            工作继电器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.DM">
+            <summary>
+            数据存储器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.EM">
+            <summary>
+            扩展数据存储器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.FM">
+            <summary>
+            文件寄存器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.ZF">
+            <summary>
+            文件寄存器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.W">
+            <summary>
+            链路寄存器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.TM">
+            <summary>
+            临时数据存储器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.Z">
+            <summary>
+            变址寄存器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.T">
+            <summary>
+            计时器（当前值）
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.TC">
+            <summary>
+            计时器（当前值）
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.TS">
+            <summary>
+            计时器（设定值）
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.C">
+            <summary>
+            计时器（当前值）
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.CC">
+            <summary>
+            计时器（当前值）
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.CS">
+            <summary>
+            计时器（设定值）
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.CM">
+            <summary>
+            控制存储器
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvPartType.VM">
+            <summary>
+            工作存储器
+            </summary>
+        </member>
+        <member name="T:ETHAN.PLC.KvExt.KvRspError">
+            <summary>
+            Kv PLC 响应错误类型
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvRspError.软元件编号异常">
+            <summary>
+            E0
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvRspError.命令异常">
+            <summary>
+            E1
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvRspError.程序未登录">
+            <summary>
+            E2
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvRspError.禁止写入">
+            <summary>
+            E4
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvRspError.单元错误">
+            <summary>
+            E5
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvRspError.无注释">
+            <summary>
+            E6
+            </summary>
+        </member>
+        <member name="T:ETHAN.PLC.KvExt.KvError">
+            <summary>
+            Kv7500 错误代码
+            </summary>
+        </member>
+        <member name="T:ETHAN.PLC.KvExt.KvRunMode">
+            <summary>
+            Kv 运行模式
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvRunMode.Program">
+            <summary>
+            PROGRAM 模式或未登录梯形图
+            </summary>
+        </member>
+        <member name="F:ETHAN.PLC.KvExt.KvRunMode.Run">
+            <summary>
+            RUN 模式
+            </summary>
+        </member>
+        <member name="T:ETHAN.PLC.KvExt.KvPartProp">
+            <summary>
+            Kv 软元件属性
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.PartType">
+            <summary>
+            元件类型
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.PartName">
+            <summary>
+            软元件名
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.MinNum">
+            <summary>
+            软元件起始编号
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.MaxNum">
+            <summary>
+            软元件最大编号
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.DefaultReadType">
+            <summary>
+            软元件默认读取类型
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.MaxReadCount16">
+            <summary>
+            16位读写最多操作数
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.MaxReadCount32">
+            <summary>
+            32位读写最多操作数
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.IsPartNumHex">
+            <summary>
+            编号是否以16位显示，0 ~ F
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvPartProp.IsPartNum15">
+            <summary>
+            编号是否以16位显示，0 ~ 15
+            </summary>
+        </member>
+        <member name="M:ETHAN.PLC.KvExt.KvPartProp.#ctor(System.String[],System.Int32)">
+            <summary>
+            Kv 软元件属性
+            </summary>
+            <param name="propArray">软元件属性</param>
+            <param name="offset">偏移量</param>
+        </member>
+        <member name="M:ETHAN.PLC.KvExt.KvPartProp.#ctor">
+            <summary>
+            Kv 软元件属性
+            </summary>
+        </member>
+        <member name="T:ETHAN.PLC.KvExt.KvParts">
+            <summary>
+            KvParts
+            </summary>
+        </member>
+        <member name="P:ETHAN.PLC.KvExt.KvParts.DicPartProp">
+            <summary>
+            软元件属性
+            </summary>
+        </member>
+    </members>
+</doc>

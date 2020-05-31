@@ -1,0 +1,1166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7DFE43C7-9106-4552-B67D-908E27581238}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IFactory.UI</RootNamespace>
+    <AssemblyName>IFactory.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ATL_MC.CtrlIni">
+      <HintPath>..\ATL_MC.CtrlIni\bin\Debug\ATL_MC.CtrlIni.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.EpsonScaraRobotController, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ATL_MC.EpsonScaraRobotController\ATL_MC.EpsonScaraRobotController\bin\Debug\ATL_MC.EpsonScaraRobotController.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.KEYENCE.PLC, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ATL_MC.KEYENCE.PLC\ATL_MC.KEYENCE.PLC\bin\Debug\ATL_MC.KEYENCE.PLC.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC.Vision, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ATL_MC.Vision\bin\Debug\ATL_MC.Vision.dll</HintPath>
+    </Reference>
+    <Reference Include="ATL_MC_KangShiDaLight, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ATL_MC_KangShiDaLight\ATL_MC_KangShiDaLight\bin\Debug\ATL_MC_KangShiDaLight.dll</HintPath>
+    </Reference>
+    <Reference Include="BaslerCamera, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\BaslerCamera\bin\Debug\BaslerCamera.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IFactory.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Common\bin\Debug\IFactory.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Data">
+      <HintPath>..\IFactory.Data\bin\Debug\IFactory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Domain\bin\Debug\IFactory.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.LocalApi">
+      <HintPath>..\IFactory.LocalAPI\bin\Debug\IFactory.LocalApi.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.LocalMap">
+      <HintPath>..\IFactory.LocalMap\bin\Debug\IFactory.LocalMap.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Platform.Client">
+      <HintPath>..\IFactory.Platform.Client\bin\Debug\IFactory.Platform.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Platform.Common">
+      <HintPath>..\IFactory.Platform.Common\bin\Debug\IFactory.Platform.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.UI.Controls">
+      <HintPath>..\IFactory.UI.Controls\bin\Debug\IFactory.UI.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.UI.Core">
+      <HintPath>..\IFactory.UI.Core\bin\Debug\IFactory.UI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kel.IFactory.Mqtt.Client, Version=1.15.18.920, Culture=neutral, PublicKeyToken=5be8fc5dac5fd2e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Kel.IFactory.Mqtt.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts">
+      <HintPath>E:\设备工作\ali-sys\项目\ATL\i-factory\ATL-Client\BIN 6.27\客户端704\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf">
+      <HintPath>E:\设备工作\ali-sys\项目\ATL\i-factory\ATL-Client\BIN 6.27\客户端704\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.Client.Controls\lib\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.Data.Services.Design" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.WebApi\bin\Debug\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFVisifire.Charts">
+      <HintPath>..\VisifireCharts\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AlarmInfo\AlarmInfoPage.xaml.cs">
+      <DependentUpon>AlarmInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\AlarmAddFieldPage.xaml.cs">
+      <DependentUpon>AlarmAddFieldPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\AlarmAddRulePage.xaml.cs">
+      <DependentUpon>AlarmAddRulePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\AlarmConfigMainPage.xaml.cs">
+      <DependentUpon>AlarmConfigMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\HistoryAlarmListPage2.xaml.cs">
+      <DependentUpon>HistoryAlarmListPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\SetAlarmPage.xaml.cs">
+      <DependentUpon>SetAlarmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\HistoryAlarmDetailPage.xaml.cs">
+      <DependentUpon>HistoryAlarmDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\HistoryAlarmListPage.xaml.cs">
+      <DependentUpon>HistoryAlarmListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\RealTimeAlarmDetailPage.xaml.cs">
+      <DependentUpon>RealTimeAlarmDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\RealTimeAlarmListPage.xaml.cs">
+      <DependentUpon>RealTimeAlarmListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AlarmMonitor\WorkCalendarPage.xaml.cs">
+      <DependentUpon>WorkCalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Argument\BtyArgumentPage3..xaml.cs">
+      <DependentUpon>BtyArgumentPage3..xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Argument\BtyArgumentPage4.xaml.cs">
+      <DependentUpon>BtyArgumentPage4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Argument\BtyArgumentPage2.xaml.cs">
+      <DependentUpon>BtyArgumentPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Argument\BtyArgumentPage1.xaml.cs">
+      <DependentUpon>BtyArgumentPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarPage.xaml.cs">
+      <DependentUpon>CalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\AVEPage2.xaml.cs">
+      <DependentUpon>AVEPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\AVEPage.xaml.cs">
+      <DependentUpon>AVEPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataAlarmPage.xaml.cs">
+      <DependentUpon>DataAlarmPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataAlarmPage2.xaml.cs">
+      <DependentUpon>DataAlarmPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataNGPage.xaml.cs">
+      <DependentUpon>DataNGPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataNGPage2.xaml.cs">
+      <DependentUpon>DataNGPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataOKPage.xaml.cs">
+      <DependentUpon>DataOKPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataOKPage2.xaml.cs">
+      <DependentUpon>DataOKPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\PPMPage.xaml.cs">
+      <DependentUpon>PPMPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\PPMPage2.xaml.cs">
+      <DependentUpon>PPMPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\WorkCalendarPage2.xaml.cs">
+      <DependentUpon>WorkCalendarPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\WorkCalendarPage.xaml.cs">
+      <DependentUpon>WorkCalendarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostic\Diagnostic.xaml.cs">
+      <DependentUpon>Diagnostic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostic\IO.xaml.cs">
+      <DependentUpon>IO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostic\KeyencePLC.xaml.cs">
+      <DependentUpon>KeyencePLC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostic\LightController.xaml.cs">
+      <DependentUpon>LightController.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostic\ScaraTest.xaml.cs">
+      <DependentUpon>ScaraTest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Diagnostic\Teach.xaml.cs">
+      <DependentUpon>Teach.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FarCtrl\OneChangePage.xaml.cs">
+      <DependentUpon>OneChangePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FarCtrl\OneKeyPage2.xaml.cs">
+      <DependentUpon>OneKeyPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FarCtrl\OneKeyPage.xaml.cs">
+      <DependentUpon>OneKeyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HttpClient.cs" />
+    <Compile Include="CityInfo.cs.cs" />
+    <Compile Include="CraftDetails\CraftDetailPage12.xaml.cs">
+      <DependentUpon>CraftDetailPage12.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftDetails\CraftDetailPage1.xaml.cs">
+      <DependentUpon>CraftDetailPage1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftDetails\CraftDetailPage2.xaml.cs">
+      <DependentUpon>CraftDetailPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftDetails\CraftDetailPage3.xaml.cs">
+      <DependentUpon>CraftDetailPage3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftDetails\CraftDetailPage4.xaml.cs">
+      <DependentUpon>CraftDetailPage4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftDetails\CraftDetailsPage02.xaml.cs">
+      <DependentUpon>CraftDetailsPage02.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftDetails\CraftDetailsPage.xaml.cs">
+      <DependentUpon>CraftDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftAVIPage.xaml.cs">
+      <DependentUpon>CraftAVIPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftBakingPage.xaml.cs">
+      <DependentUpon>CraftBakingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftDegassingPage.xaml.cs">
+      <DependentUpon>CraftDegassingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftFEFPage.xaml.cs">
+      <DependentUpon>CraftFEFPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftFQIPage.xaml.cs">
+      <DependentUpon>CraftFQIPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftInjectionPage.xaml.cs">
+      <DependentUpon>CraftInjectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftInspection1Page.xaml.cs">
+      <DependentUpon>CraftInspection1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftInspection2Page.xaml.cs">
+      <DependentUpon>CraftInspection2Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftMIBPage.xaml.cs">
+      <DependentUpon>CraftMIBPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftMyLarPage.xaml.cs">
+      <DependentUpon>CraftMyLarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftOCV1Page.xaml.cs">
+      <DependentUpon>CraftOCV1Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftOCVBPage.xaml.cs">
+      <DependentUpon>CraftOCVBPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftPackingPage.xaml.cs">
+      <DependentUpon>CraftPackingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftPIEFPage.xaml.cs">
+      <DependentUpon>CraftPIEFPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftRFPage.xaml.cs">
+      <DependentUpon>CraftRFPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftTappingPage.xaml.cs">
+      <DependentUpon>CraftTappingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CraftIndex\CraftXRayPage.xaml.cs">
+      <DependentUpon>CraftXRayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataCapacityPage2.xaml.cs">
+      <DependentUpon>DataCapacityPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataQualityPage2.xaml.cs">
+      <DependentUpon>DataQualityPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataQualityPage.xaml.cs">
+      <DependentUpon>DataQualityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataProductionPage.xaml.cs">
+      <DependentUpon>DataProductionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\DataCapacityPage.xaml.cs">
+      <DependentUpon>DataCapacityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\ProductStatementNGPage2.xaml.cs">
+      <DependentUpon>ProductStatementNGPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\ProductStatementNGPage.xaml.cs">
+      <DependentUpon>ProductStatementNGPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\ProductStatementPage2.xaml.cs">
+      <DependentUpon>ProductStatementPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataWareHouse\ProductStatementPage.xaml.cs">
+      <DependentUpon>ProductStatementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Live.xaml.cs">
+      <DependentUpon>Live.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginDialog.xaml.cs">
+      <DependentUpon>LoginDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain\VulnerableStatisticPage.xaml.cs">
+      <DependentUpon>VulnerableStatisticPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\AlarmUnitAddDialog.xaml.cs">
+      <DependentUpon>AlarmUnitAddDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\AlarmUnitPage.xaml.cs">
+      <DependentUpon>AlarmUnitPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\BtyArgumentPage.xaml.cs">
+      <DependentUpon>BtyArgumentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\CraftEditDialog.xaml.cs">
+      <DependentUpon>CraftEditDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\CraftManagentPage.xaml.cs">
+      <DependentUpon>CraftManagentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\GeneralPresupposition.xaml.cs">
+      <DependentUpon>GeneralPresupposition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\KanbanManagementPage.xaml.cs">
+      <DependentUpon>KanbanManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\ProductionLineEditDialog.xaml.cs">
+      <DependentUpon>ProductionLineEditDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\ProductionLineManagentPage.xaml.cs">
+      <DependentUpon>ProductionLineManagentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\SetArgumentPage.xaml.cs">
+      <DependentUpon>SetArgumentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowPictureWindow.xaml.cs">
+      <DependentUpon>ShowPictureWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Situation\StandbyPage.xaml.cs">
+      <DependentUpon>StandbyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemParam\SystemParamAddDialog.xaml.cs">
+      <DependentUpon>SystemParamAddDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemParam\SystemParamManagerPage.xaml.cs">
+      <DependentUpon>SystemParamManagerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemParam\ProductParamAddDialog.xaml.cs">
+      <DependentUpon>ProductParamAddDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SystemParam\ProductParamManagerPage.xaml.cs">
+      <DependentUpon>ProductParamManagerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Test.xaml.cs">
+      <DependentUpon>Test.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Upgrade\UpgradeHelper.cs" />
+    <Compile Include="Upgrade\UpgradeService.cs" />
+    <Compile Include="UserManager\FactoryCheckDialog.xaml.cs">
+      <DependentUpon>FactoryCheckDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\ChangePasswordDialog.xaml.cs">
+      <DependentUpon>ChangePasswordDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\MenuEditDialog.xaml.cs">
+      <DependentUpon>MenuEditDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\MenuManagementPage.xaml.cs">
+      <DependentUpon>MenuManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\MenuNameStyleConverter.cs" />
+    <Compile Include="UserManager\PersonalInfoEditDialog.xaml.cs">
+      <DependentUpon>PersonalInfoEditDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\PersonalInfoPage.xaml.cs">
+      <DependentUpon>PersonalInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\RoleAddDialog.xaml.cs">
+      <DependentUpon>RoleAddDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\RoleManagerPage.xaml.cs">
+      <DependentUpon>RoleManagerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\BarCodeCheckDialog.xaml.cs">
+      <DependentUpon>BarCodeCheckDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\UserCheckDialog.xaml.cs">
+      <DependentUpon>UserCheckDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\UserAddDialog.xaml.cs">
+      <DependentUpon>UserAddDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserManager\UserManagerPage.xaml.cs">
+      <DependentUpon>UserManagerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\DataProductionHistoryPage2.xaml.cs">
+      <DependentUpon>DataProductionHistoryPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\DataProductionHistoryPage.xaml.cs">
+      <DependentUpon>DataProductionHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\DataProductionRealPage.xaml.cs">
+      <DependentUpon>DataProductionRealPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\DataProductionRealPage2.xaml.cs">
+      <DependentUpon>DataProductionRealPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\DataProductionRealTimePage.xaml.cs">
+      <DependentUpon>DataProductionRealTimePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\ZhuiSuHistoryPage2.xaml.cs">
+      <DependentUpon>ZhuiSuHistoryPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\ZhuiSuHistoryPage.xaml.cs">
+      <DependentUpon>ZhuiSuHistoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\ZhuiSuRealTimePage2.xaml.cs">
+      <DependentUpon>ZhuiSuRealTimePage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="zhuisu\ZhuiSuRealTimePage.xaml.cs">
+      <DependentUpon>ZhuiSuRealTimePage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AlarmInfo\AlarmInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmMonitor\AlarmAddFieldPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmMonitor\AlarmAddRulePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmMonitor\AlarmConfigMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmMonitor\HistoryAlarmListPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AlarmMonitor\SetAlarmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AlarmMonitor\HistoryAlarmDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmMonitor\HistoryAlarmListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmMonitor\RealTimeAlarmDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmMonitor\RealTimeAlarmListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AlarmMonitor\WorkCalendarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Argument\BtyArgumentPage3..xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Argument\BtyArgumentPage4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Argument\BtyArgumentPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Argument\BtyArgumentPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CalendarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftDetails\CraftDetailPage12.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CraftDetails\CraftDetailPage1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftDetails\CraftDetailPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftDetails\CraftDetailPage3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftDetails\CraftDetailPage4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftDetails\CraftDetailsPage02.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CraftDetails\CraftDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftAVIPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftBakingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftDegassingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftFEFPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftFQIPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftInjectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftInspection1Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftInspection2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftMIBPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftMyLarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftOCV1Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftOCVBPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftPackingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftPIEFPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftRFPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftTappingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CraftIndex\CraftXRayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataWareHouse\AVEPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\AVEPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataAlarmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataAlarmPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataCapacityPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataNGPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataNGPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataOKPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataOKPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataQualityPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataQualityPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataProductionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\DataCapacityPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataWareHouse\PPMPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\PPMPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\ProductStatementNGPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\ProductStatementNGPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataWareHouse\ProductStatementPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\ProductStatementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataWareHouse\WorkCalendarPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="DataWareHouse\WorkCalendarPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diagnostic\Diagnostic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diagnostic\IO.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diagnostic\KeyencePLC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diagnostic\LightController.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diagnostic\ScaraTest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Diagnostic\Teach.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FarCtrl\OneChangePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FarCtrl\OneKeyPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FarCtrl\OneKeyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Live.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Maintain\VulnerableStatisticPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\ChartHelper.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Setting\AlarmUnitAddDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\AlarmUnitPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\BtyArgumentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\CraftEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\CraftManagentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\GeneralPresupposition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\KanbanManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\ProductionLineEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\ProductionLineManagentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Setting\SetArgumentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowPictureWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Situation\StandbyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SystemParam\SystemParamAddDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SystemParam\SystemParamManagerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SystemParam\ProductParamAddDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SystemParam\ProductParamManagerPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Test.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\FactoryCheckDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserManager\ChangePasswordDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\MenuEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\MenuManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\PersonalInfoEditDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\PersonalInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\RoleAddDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\RoleManagerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\BarCodeCheckDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserManager\UserCheckDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserManager\UserAddDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserManager\UserManagerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="zhuisu\DataProductionHistoryPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="zhuisu\DataProductionHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="zhuisu\DataProductionRealPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="zhuisu\DataProductionRealPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="zhuisu\DataProductionRealTimePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="zhuisu\ZhuiSuHistoryPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="zhuisu\ZhuiSuHistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="zhuisu\ZhuiSuRealTimePage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="zhuisu\ZhuiSuRealTimePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\alarm_panel.png" />
+    <Resource Include="assets\battery.png" />
+    <Resource Include="assets\btncraftdetails.png" />
+    <Resource Include="assets\button_close.png" />
+    <Resource Include="assets\button_log_out.png" />
+    <Resource Include="assets\button_max.png" />
+    <Resource Include="assets\button_min.png" />
+    <Resource Include="assets\button_switch_user.png" />
+    <Resource Include="assets\calendar.png" />
+    <Resource Include="assets\craft_baking.png" />
+    <Resource Include="assets\craft_degassing.png" />
+    <Resource Include="assets\craft_fef.png" />
+    <Resource Include="assets\craft_injection.png" />
+    <Resource Include="assets\craft_inspection1.png" />
+    <Resource Include="assets\craft_inspection1_text.png" />
+    <Resource Include="assets\craft_inspection2.png" />
+    <Resource Include="assets\craft_mib.png" />
+    <Resource Include="assets\craft_mib_text.png" />
+    <Resource Include="assets\craft_ocv1.png" />
+    <Resource Include="assets\craft_ocvb.png" />
+    <Resource Include="assets\craft_packing_text.png" />
+    <Resource Include="assets\craft_pief.png" />
+    <Resource Include="assets\craft_pief_text.png" />
+    <Resource Include="assets\datacapacity.png" />
+    <Resource Include="assets\dialog_bg.png" />
+    <Resource Include="assets\dialog_close.png" />
+    <Resource Include="assets\file.png" />
+    <Resource Include="assets\jumpbutton.png" />
+    <Resource Include="assets\line_circle1.png" />
+    <Resource Include="assets\line_cycle_bg.png" />
+    <Resource Include="assets\line_cycle_text.png" />
+    <Resource Include="assets\live.png" />
+    <Resource Include="assets\live1.png" />
+    <Resource Include="assets\login_bg.png" />
+    <Resource Include="assets\login_button.png" />
+    <Resource Include="assets\main-stop.png" />
+    <Resource Include="assets\main-stop1.png" />
+    <Resource Include="assets\main-stop2.png" />
+    <Resource Include="assets\main.gif" />
+    <Resource Include="assets\main_bg.png" />
+    <Resource Include="assets\menu_button_bg.png" />
+    <Resource Include="assets\menu_child_button_bg.png" />
+    <Resource Include="assets\packing.png" />
+    <Resource Include="assets\panel_bg1.png" />
+    <Resource Include="assets\plc.gif" />
+    <Resource Include="assets\plc_circle1.png" />
+    <Resource Include="assets\plc_circle2.png" />
+    <Resource Include="assets\plc_no.gif" />
+    <Resource Include="assets\plc_ok.gif" />
+    <Resource Include="assets\plc_ok1.gif" />
+    <Resource Include="assets\plc_on.gif" />
+    <Resource Include="assets\production.png" />
+    <Resource Include="assets\right_panel_border.png" />
+    <Resource Include="assets\standby.png" />
+    <Resource Include="assets\states.png" />
+    <Resource Include="assets\state_abnormal.png" />
+    <Resource Include="assets\state_normal.png" />
+    <Resource Include="assets\tabs1.png" />
+    <Resource Include="assets\tabs2.png" />
+    <Resource Include="assets\tabs3.png" />
+    <Resource Include="assets\tabs4.png" />
+    <Resource Include="assets\tab_alarm1.png" />
+    <Resource Include="assets\tab_alarm2.png" />
+    <Resource Include="assets\tab_header.png" />
+    <Resource Include="assets\vulnerablestatistic.png" />
+    <Resource Include="assets\workcalendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\icons\lower.png" />
+    <Resource Include="assets\icons\pencil.png" />
+    <Resource Include="assets\icons\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\temp\change.png" />
+    <Resource Include="assets\temp\daytime.png" />
+    <Resource Include="assets\temp\device.png" />
+    <Resource Include="assets\temp\good.png" />
+    <Resource Include="assets\temp\live_states.png" />
+    <Resource Include="assets\temp\pgk.png" />
+    <Resource Include="assets\temp\temp_pic1.png" />
+    <Resource Include="assets\temp\temp_pic2.png" />
+    <Resource Include="assets\temp\temp_pic3.gif" />
+    <Resource Include="assets\temp\time.png" />
+    <Resource Include="assets\temp\time1.png" />
+    <Resource Include="assets\temp\time_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="craftprobably.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="craftprobably1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\tabs5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ATL_MC.DAL\ATL_MC.DAL.csproj">
+      <Project>{da6cfeb0-9c14-423f-862a-4fd10d79305d}</Project>
+      <Name>ATL_MC.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATL_MC.MainCtrl\ATL_MC.MainCtrl\ATL_MC.MainCtrl.csproj">
+      <Project>{5a3ba131-d2a8-4c1b-903c-e7dc069c275e}</Project>
+      <Name>ATL_MC.MainCtrl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ATL_MC.SR_1000\ATL_MC.SR_1000.csproj">
+      <Project>{19620b7b-dc2d-44da-9710-9d0989b9240f}</Project>
+      <Name>ATL_MC.SR_1000</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

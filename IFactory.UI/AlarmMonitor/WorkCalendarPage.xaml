@@ -1,0 +1,13 @@
+﻿<controls:BaseCraftIndexPage x:Class="IFactory.UI.AlarmMonitor.WorkCalendarPage"
+                             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                             xmlns:local="clr-namespace:IFactory.UI"
+                             xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+                             Title="WorkCalendarPage">
+    <Canvas Margin="278,379,-278,-379">
+        <Image Source="/IFactory.UI;component/Assets/WorkCalendar.png" Height="670" Width="1197"
+           Canvas.Left="54" Canvas.Top="-272"/>
+    </Canvas>
+</controls:BaseCraftIndexPage>

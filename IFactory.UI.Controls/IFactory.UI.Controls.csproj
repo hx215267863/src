@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: E:\设备工作\ali-sys\项目\ATL\i-factory\ATL-Client\BIN 6.27\客户端704\IFactory.Client.Controls.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{01BD3C01-35B8-4C2A-9BD9-051A04782D30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>IFactory.UI.Controls</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>IFactory.UI.Controls</RootNamespace>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IFactory.Domain">
+      <HintPath>..\IFactory.Domain\bin\Debug\IFactory.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.LocalApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IFactory.LocalAPI\bin\Debug\IFactory.LocalApi.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.LocalService">
+      <HintPath>..\IFactory.LocalService\bin\Debug\IFactory.LocalService.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.Platform.Common">
+      <HintPath>..\IFactory.Platform.Common\bin\Debug\IFactory.Platform.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IFactory.UI.Core">
+      <HintPath>..\IFactory.UI.Core\bin\Debug\IFactory.UI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="PagedList">
+      <HintPath>lib\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseCraftPage.cs" />
+    <Compile Include="BasePage.cs" />
+    <Compile Include="CraftProbably.xaml.cs">
+      <DependentUpon>CraftProbably.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DateScaleBar.xaml.cs">
+      <DependentUpon>DateScaleBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBackground.xaml.cs">
+      <DependentUpon>DialogBackground.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IFacilityStateWindow.cs" />
+    <Compile Include="LineProbably.xaml.cs">
+      <DependentUpon>LineProbably.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pager.xaml.cs">
+      <DependentUpon>Pager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PercentageBar.xaml.cs">
+      <DependentUpon>PercentageBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlaceholderTextBox.cs" />
+    <Compile Include="BaseCraftIndexPage.cs" />
+    <Compile Include="BaseCraftDetailPage.cs" />
+    <Compile Include="GifAnimation.cs" />
+    <Compile Include="GifImageExceptionRoutedEventArgs.cs" />
+    <Compile Include="PLCList.xaml.cs">
+      <DependentUpon>PLCList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SmallPager.xaml.cs">
+      <DependentUpon>SmallPager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StateCycle.xaml.cs">
+      <DependentUpon>StateCycle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StateImage.xaml.cs">
+      <DependentUpon>StateImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebReadState.cs" />
+    <Compile Include="GifImage.cs" />
+    <Compile Include="PageNumberChangedEventArgs.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\craftprobably.png" />
+    <Resource Include="assets\date_scale_bar.png" />
+    <Resource Include="assets\date_scale_button.png" />
+    <Resource Include="assets\dialog_body.png" />
+    <Resource Include="assets\dialog_footer.png" />
+    <Resource Include="assets\dialog_header.png" />
+    <Resource Include="assets\line_circle1.png" />
+    <Resource Include="assets\lineprobably.png" />
+    <Resource Include="assets\plc_circle1.png" />
+    <Resource Include="assets\plc_circle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CraftProbably.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DateScaleBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DialogBackground.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LineProbably.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PercentageBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PLCList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SmallPager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StateCycle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StateImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\%25%25e6%25%2596%25%25b9%25%25e6%25%25ad%25%25a3%25%25e5%25%2585%25%25b0%25%25e4%25%25ba%25%25ad%25%25e9%25%25bb%25%2591_gbk.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="assets\craftprobably1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

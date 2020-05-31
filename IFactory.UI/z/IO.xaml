@@ -1,0 +1,134 @@
+﻿<controls:BasePage x:Class="IFactory.UI.Debug.IO"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:IFactory.UI.Debug"
+      xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      Loaded="Page_Loaded" Title="RoleManagerPage">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseDataGridStyle}">
+            <Setter Property="FrameworkElement.MaxWidth" Value="1145"/>
+            <Setter Property="FrameworkElement.Height" Value="202"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="6"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+        <Style x:Key="FilterTextStyle" TargetType="{x:Type Label}">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Padding" Value="8,0"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="ReportTitleStyle" TargetType="{x:Type Label}">
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseTextBoxStyle}">
+            <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"/>
+            <Setter Property="FrameworkElement.Width" Value="166"/>
+            <Setter Property="FrameworkElement.Height" Value="23"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="{x:Type DatePicker}">
+            <Setter Property="FrameworkElement.MinHeight" Value="26"/>
+            <Setter Property="FrameworkElement.Height" Value="23"/>
+            <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="DatePicker.IsTodayHighlighted" Value="true"/>
+            <Setter Property="Control.Padding" Value="0"/>
+            <Setter Property="FrameworkElement.Margin" Value="0"/>
+            <Setter Property="DatePicker.SelectedDate" Value="{x:Null}"/>
+            <Setter Property="Control.FontSize" Value="14"/>
+            <Setter Property="UIElement.SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Control.BorderBrush">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                        <GradientStop Color="#24bdfa" Offset="0"/>
+                        <GradientStop Color="#FFFFCB97" Offset="1"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DatePicker}">
+                        <Grid x:Name="PART_Root" Margin="0" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle RadiusX="5" RadiusY="5" Fill="White" Stroke="#0f93e7" StrokeThickness="2" Grid.Column="0"/>
+                            <Grid x:Name="PART_InnerGrid" Margin="0" Column="0" Background="Transparent">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <DatePickerTextBox x:Name="PART_TextBox" Focusable="false" HorizontalAlignment="Stretch" Margin="4,0"
+                                    SnapsToDevicePixels="{TemplateBinding UIElement.SnapsToDevicePixels}" IsHitTestVisible="true"
+                                    IsReadOnly="true" VerticalAlignment="Center" FontFamily="{TemplateBinding Control.FontFamily}"
+                                    Foreground="{TemplateBinding Control.Foreground}" FontSize="{TemplateBinding Control.FontSize}"
+                                    BorderThickness="0" Background="Transparent"
+                                    Text="{Binding Path=SelectedDate, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}, StringFormat='yyyy-MM-dd'}"/>
+                                <ToggleButton Grid.Column="0" IsTabStop="false" Style="{StaticResource DatePickerToggleButtonStyle}"
+                                ClickMode="Press" Background="Transparent"
+                                IsChecked="{Binding Path=IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                <Popup x:Name="PART_Popup" Focusable="false" AllowsTransparency="true" Placement="Bottom"
+                        StaysOpen="false" PopupAnimation="Slide" PlacementTarget="{Binding ElementName=PART_TextBox}"/>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
+    <Grid Margin="0,0,0,0">
+        <Image Style="{StaticResource RightPanelBorder}"/>
+        <Canvas Style="{StaticResource TabHeaderStyle1}" Margin="247,10,10,634">
+            <Label Style="{StaticResource TabTitleStyle1}" Content="IO调试"/>
+        </Canvas>
+        <RadioButton x:Name="radioButton0" Content="RadioButton" HorizontalAlignment="Left" Margin="524,90,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton1" Content="RadioButton" HorizontalAlignment="Left" Margin="524,110,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton2" Content="RadioButton" HorizontalAlignment="Left" Margin="524,132,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton3" Content="RadioButton" HorizontalAlignment="Left" Margin="524,152,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton4" Content="RadioButton" HorizontalAlignment="Left" Margin="524,174,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton5" Content="RadioButton" HorizontalAlignment="Left" Margin="524,194,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton6" Content="RadioButton" HorizontalAlignment="Left" Margin="524,216,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton7" Content="RadioButton" HorizontalAlignment="Left" Margin="524,236,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton8" Content="RadioButton" HorizontalAlignment="Left" Margin="524,258,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton9" Content="RadioButton" HorizontalAlignment="Left" Margin="524,278,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton10" Content="RadioButton" HorizontalAlignment="Left" Margin="524,300,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton11" Content="RadioButton" HorizontalAlignment="Left" Margin="524,320,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton12" Content="RadioButton" HorizontalAlignment="Left" Margin="524,342,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton13" Content="RadioButton" HorizontalAlignment="Left" Margin="524,362,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton14" Content="RadioButton" HorizontalAlignment="Left" Margin="524,384,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton15" Content="RadioButton" HorizontalAlignment="Left" Margin="524,404,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton16" Content="RadioButton" HorizontalAlignment="Left" Margin="524,426,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton17" Content="RadioButton" HorizontalAlignment="Left" Margin="524,446,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton18" Content="RadioButton" HorizontalAlignment="Left" Margin="524,468,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton19" Content="RadioButton" HorizontalAlignment="Left" Margin="524,488,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton20" Content="RadioButton" HorizontalAlignment="Left" Margin="524,510,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton21" Content="RadioButton" HorizontalAlignment="Left" Margin="524,530,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton22" Content="RadioButton" HorizontalAlignment="Left" Margin="524,552,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton23" Content="RadioButton" HorizontalAlignment="Left" Margin="524,572,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioButton24" Content="到位信号" HorizontalAlignment="Left" Margin="524,594,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button0" Content="ON" HorizontalAlignment="Left" Margin="774,86,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button0_Click"/>
+        <Button x:Name="button1" Content="ON" HorizontalAlignment="Left" Margin="774,108,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button1_Click"/>
+        <Button x:Name="button2" Content="ON" HorizontalAlignment="Left" Margin="774,128,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button2_Click"/>
+        <Button x:Name="button3" Content="ON" HorizontalAlignment="Left" Margin="774,150,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button3_Click"/>
+        <Button x:Name="button4" Content="ON" HorizontalAlignment="Left" Margin="774,170,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button4_Click"/>
+        <Button x:Name="button5" Content="ON" HorizontalAlignment="Left" Margin="774,192,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button5_Click"/>
+        <Button x:Name="button6" Content="ON" HorizontalAlignment="Left" Margin="774,212,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button6_Click"/>
+        <Button x:Name="button7" Content="ON" HorizontalAlignment="Left" Margin="774,234,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button7_Click"/>
+        <Button x:Name="button8" Content="ON" HorizontalAlignment="Left" Margin="774,254,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button8_Click"/>
+        <Button x:Name="button9" Content="ON" HorizontalAlignment="Left" Margin="774,276,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button9_Click"/>
+        <Button x:Name="button10" Content="ON" HorizontalAlignment="Left" Margin="774,296,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button10_Click"/>
+        <Button x:Name="button11" Content="ON" HorizontalAlignment="Left" Margin="774,318,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button11_Click"/>
+        <Button x:Name="button12" Content="ON" HorizontalAlignment="Left" Margin="774,338,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button12_Click"/>
+        <Button x:Name="button13" Content="ON" HorizontalAlignment="Left" Margin="774,360,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button13_Click"/>
+        <Button x:Name="button14" Content="ON" HorizontalAlignment="Left" Margin="774,380,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button14_Click"/>
+        <Button x:Name="button15" Content="ON" HorizontalAlignment="Left" Margin="774,402,0,0" VerticalAlignment="Top" Width="34" Height="20" Click="button15_Click"/>
+    </Grid>
+</controls:BasePage>

@@ -1,0 +1,59 @@
+﻿<controls:BasePage x:Class="IFactory.UI.AlarmMonitor.HistoryAlarmDetailPage"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:local="clr-namespace:IFactory.UI.AlarmMonitor"
+                   xmlns:controls="clr-namespace:IFactory.UI.Controls;assembly=IFactory.UI.Controls"
+                   Loaded="Page_Loaded" Title="RoleManagerPage">
+    <FrameworkElement.Resources>
+        <Style TargetType="{x:Type DataGridCell}" BasedOn="{StaticResource DataGridCellStyle}">
+            <Setter Property="Control.Padding" Value="14"/>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource DataGridColumnHeaderStyle}"/>
+        <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource BaseDataGridStyle}"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border BorderThickness="0" Background="#74daf9" CornerRadius="12" Width="120" Height="36">
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="14">
+                <ContentPresenter/>
+                            </TextBlock>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </FrameworkElement.Resources>
+    <Canvas>
+        <Image Style="{StaticResource RightPanelBorder}"/>
+        <Canvas Style="{StaticResource TabHeaderStyle1}">
+            <Label x:Name="txtTabTitle" Style="{StaticResource TabTitleStyle1}" Content="历史报警详情"/>
+        </Canvas>
+        <Border Background="#004ee4" CornerRadius="20,20,0,0" BorderThickness="0" Width="523" Height="48"
+            Canvas.Left="354" Canvas.Top="204">
+            <TextBlock Foreground="White" FontSize="14" VerticalAlignment="Center" HorizontalAlignment="Center"
+                 Text="包装机滑台气缸收缩异常"/>
+        </Border>
+        <Image x:Name="imgAlarmLocation" Canvas.Left="354" Canvas.Top="252" Width="523" Height="505"/>
+        <Border Canvas.Left="909" Canvas.Top="204" CornerRadius="20" BorderThickness="1" BorderBrush="#5fe4fa"
+            Width="600" Height="545">
+            <StackPanel>
+                <DataGrid x:Name="dataGrid" Margin="14,20" HeadersVisibility="None" Width="560" Height="450"
+                  HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" FontSize="16">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="160" Binding="{Binding FieldName}"/>
+                        <DataGridTextColumn Width="400" Binding="{Binding FieldValue}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Margin="50,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Click="btnShowSolutionImage_Click" x:Name="btnShowSolutionImage" Grid.Column="0" Content="查看方案图纸"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Canvas>
+</controls:BasePage>
